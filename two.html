@@ -3,970 +3,853 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>물리1 (비상) 2단원 - 물질과 전자기장 (1-79번)</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>물리학1 개념확인 (비상 교과서) - 아피아과학 학원</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+
         body {
             font-family: 'Noto Sans KR', sans-serif;
-            background-color: #f0f4f8;
-        }
-        .quiz-container {
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 1.5rem;
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-        .question-card {
-            background-color: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-        }
-        .question-text {
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: #2d3748;
-            margin-bottom: 1rem;
-            line-height: 1.6;
-        }
-        .question-text .blank-emphasis { 
-            font-weight: bold;
-            color: #3b82f6; 
-        }
-        .option-label {
-            display: block;
-            padding: 0.75rem 1rem;
-            margin-bottom: 0.5rem;
-            border: 1px solid #cbd5e0;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background-color 0.2s, border-color 0.2s;
-            background-color: #f7fafc;
-        }
-        .option-label:hover {
-            background-color: #e2e8f0;
-        }
-        .option-input:checked + .option-label {
-            background-color: #4299e1;
-            color: white;
-            border-color: #2b6cb0;
-        }
-        .feedback {
-            margin-top: 1rem;
-            padding: 0.75rem;
-            border-radius: 6px;
-            font-size: 0.95rem;
-        }
-        .feedback.correct {
-            background-color: #c6f6d5;
-            color: #2f855a;
-            border: 1px solid #9ae6b4;
-        }
-        .feedback.incorrect {
-            background-color: #fed7d7;
-            color: #c53030;
-            border: 1px solid #fbb6ce;
-        }
-        .explanation {
-            margin-top: 0.5rem;
-            font-size: 0.9rem;
-            color: #4a5568;
-            line-height: 1.5;
-        }
-        .action-button {
-            background-color: #4a5568;
-            color: white;
-            padding: 0.6rem 1.2rem;
-            border-radius: 6px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: background-color 0.2s;
-            border: none;
-            margin-top: 1rem;
-            margin-right: 0.5rem;
-        }
-        .action-button:hover:not(:disabled) {
-            background-color: #2d3748;
-        }
-        .action-button:disabled {
-            background-color: #a0aec0;
-            cursor: not-allowed;
-        }
-        .pagination-controls {
-            display: flex; 
-            justify-content: center;
-            align-items: center;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-        }
-        .pagination-controls button, .pagination-controls span {
-            margin: 0 0.25rem;
-            padding: 0.5rem 0.75rem;
-            border: 1px solid #cbd5e0;
-            border-radius: 4px;
-            background-color: #fff;
-            cursor: pointer;
-        }
-        .pagination-controls button:disabled {
-            background-color: #e2e8f0;
-            cursor: not-allowed;
-            opacity: 0.7;
-        }
-        .pagination-controls .page-number.current {
-            background-color: #4299e1;
-            color: white;
-            border-color: #2b6cb0;
-            font-weight: bold;
-        }
-        .score-section {
-            margin-top: 1.5rem;
-            padding: 1.5rem; 
-            background-color: #e9f5ff;
-            border-radius: 8px;
-            text-align: left;
-        }
-        .score-text {
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: #1a202c;
-            margin-bottom: 0.5rem;
-        }
-        .quiz-title-in-score {
-            font-size: 1.1rem; 
-            font-weight: bold;
-            color: #1e40af; 
-            margin-bottom: 0.75rem; 
-        }
-        .motivational-quote { 
-            font-size: 1rem;
-            font-style: italic;
-            color: #374151; 
-            margin-top: 1.5rem; 
-            padding-top: 1rem;
-            border-top: 1px dashed #cbd5e0; 
-            text-align: center;
-        }
-        h1 { 
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #1a202c;
-            text-align: center;
-            margin-bottom: 1.5rem;
-        }
-        .page-info {
-            text-align: center;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-            color: #4a5568;
+            line-height: 1.7;
+            margin: 0;
+            background-color: #f0f2f5;
+            color: #333;
+            padding-top: 70px; /* 고정 내비게이션 바 높이만큼 패딩 추가 */
         }
 
-        /* 팝업 스타일 */
-        .popup-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background-color: rgba(0, 0, 0, 0.6); display: flex;
-            justify-content: center; align-items: center; z-index: 1000; 
-            opacity: 0; visibility: hidden;
-            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        .navbar {
+            background-color: #34495e;
+            padding: 0 5px; /* 버튼이 많아져서 패딩 약간 더 줄임 */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap; 
         }
-        .popup-overlay.show { opacity: 1; visibility: visible; }
-        .popup-content {
-            background-color: white; padding: 2.5rem; border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25); text-align: center;
-            max-width: 420px; width: 90%;
+
+        .navbar button {
+            background-color: transparent;
+            color: #ecf0f1;
+            border: none;
+            padding: 15px 8px; /* 버튼 패딩 더 줄임 */
+            cursor: pointer;
+            font-size: 0.8em; /* 폰트 크기 더 줄임 */
+            font-weight: 500;
+            transition: background-color 0.2s ease, color 0.2s ease;
+            border-bottom: 3px solid transparent;
+            white-space: nowrap; 
         }
-        .popup-content h2 {
-            font-size: 1.75rem; font-weight: 700; color: #1a202c; margin-bottom: 1rem;
+
+        .navbar button:hover {
+            background-color: #4a6572;
+            color: #fff;
         }
-        .popup-content p.welcome-message {
-            font-size: 1rem; color: #4a5568; margin-bottom: 1.5rem; line-height: 1.6;
+
+        .navbar button.active-nav {
+            color: #fff;
+            border-bottom: 3px solid #3498db;
+            font-weight: 700;
         }
-        .popup-password-input {
-            width: 100%; padding: 0.75rem; margin-bottom: 1rem;
-            border: 1px solid #cbd5e0; border-radius: 6px; font-size: 1rem;
-            box-sizing: border-box; 
+
+        .container {
+            background-color: #fff;
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 25px 35px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
         }
-        .popup-confirm-btn {
-            background-color: #3b82f6; color: white; padding: 0.75rem 1.5rem;
-            border-radius: 8px; font-weight: 500; cursor: pointer;
-            transition: background-color 0.2s; border: none; width: 100%;
-            font-size: 1rem;
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 30px;
         }
-        .popup-confirm-btn:hover { background-color: #2563eb; }
-        .popup-error-message {
-            color: #ef4444; font-size: 0.875rem; margin-top: 0.75rem;
-            min-height: 1.25rem; 
+
+        .page-header h1 {
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-size: 1.8em; 
         }
+
+        .page-header .academy-info {
+            color: #555;
+            font-size: 1em; 
+            font-weight: 500;
+        }
+
+        h2 {
+            color: #34495e;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 25px;
+            margin-bottom: 20px;
+            font-size: 1.3em; /* 단원 제목 크기 약간 줄임 */
+        }
+        h3 {
+            color: #3498db;
+            font-size: 1.1em; /* 문제 유형 제목 크기 약간 줄임 */
+            margin-bottom: 15px;
+        }
+        
+        .question p .advanced-marker { 
+            color: #e74c3c;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        .question-page { display: none; animation: fadeIn 0.5s ease-in-out; }
+        .question-page.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .question { background-color: #f9f9f9; margin-bottom: 20px; padding: 20px; border-radius: 8px; border: 1px solid #e0e0e0; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .question p { margin-top: 0; margin-bottom: 12px; font-size: 1.05em; color: #2c3e50; }
+        .options input[type="radio"] { opacity: 0; position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
+        .options label { display: block; background-color: #fff; padding: 12px 15px; margin-bottom: 8px; border-radius: 6px; border: 1px solid #d1d9e6; cursor: pointer; transition: all 0.2s ease-in-out; position: relative; }
+        .options label:hover { background-color: #e9f5ff; border-color: #77aaff; }
+        .options label.selected-by-user { background-color: #d1eaff; border-color: #3498db; font-weight: 500; }
+        .options label.selected-by-user span{ color: #2980b9; }
+        .question.correct-q .options label.selected-by-user { background-color: #d4edda !important; border-color: #28a745 !important; }
+        .question.correct-q .options label.selected-by-user span { color: #155724 !important; }
+        .question.correct-q .options label.selected-by-user::after { content: '✔'; color: #28a745; font-weight: bold; position: absolute; right: 15px; top: 50%; transform: translateY(-50%); }
+        .question.incorrect-q .options label.selected-by-user { background-color: #f8d7da !important; border-color: #dc3545 !important; }
+        .question.incorrect-q .options label.selected-by-user span { color: #721c24 !important; }
+        .question.incorrect-q .options label.selected-by-user::after { content: '✖'; color: #dc3545; font-weight: bold; position: absolute; right: 15px; top: 50%; transform: translateY(-50%); }
+        .question.incorrect-q .options label.actual-correct-option { border: 2px solid #28a745 !important; font-weight: 500; }
+        .question.incorrect-q .options label.actual-correct-option span{ color: #155724 !important; }
+        .question.incorrect-q .options label.actual-correct-option::after { content: '정답'; color: #28a745; font-size: 0.85em; font-weight: bold; position: absolute; right: 15px; top: 50%; transform: translateY(-50%); background-color: #fff; padding: 0 3px; }
+        .answer-feedback { padding: 10px; margin-top: 10px; border-radius: 6px; font-weight: 500; text-align: left; }
+        .correct-q .answer-feedback { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .incorrect-q .answer-feedback { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .detailed-explanation { display: none; margin-top: 12px; padding: 12px; background-color: #e9ecef; border-radius: 6px; border: 1px solid #ced4da; font-size: 0.95em; color: #495057; }
+        .detailed-explanation strong { color: #34495e; }
+        .detailed-explanation .cite { font-size: 0.85em; color: #6c757d; margin-left: 5px; display: block; text-align: right; }
+        .page-score-button { display: block; width: 100%; padding: 12px; background-color: #3498db; color: white; font-size: 1.1em; font-weight: 500; border: none; border-radius: 6px; cursor: pointer; margin-top: 25px; margin-bottom: 15px; transition: background-color 0.2s ease; }
+        .page-score-button:hover:not(:disabled) { background-color: #2980b9; }
+        .page-score-button:disabled { background-color: #bdc3c7; cursor: not-allowed; }
+        .page-score-display { text-align: center; font-size: 1.3em; font-weight: bold; margin-top: 15px; padding: 12px; background-color: #e9ecef; border-radius: 6px; color: #495057; }
+        .pagination-controls { display: flex; justify-content: space-between; align-items: center; margin-top: 30px; }
+        .pagination-controls button { padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 1em; transition: background-color 0.2s ease; }
+        .pagination-controls button:hover:not(:disabled) { background-color: #0056b3; }
+        .pagination-controls button:disabled { background-color: #cccccc; cursor: not-allowed; }
+        .page-info { font-size: 1em; font-weight: 500; color: #555; }
     </style>
 </head>
 <body>
-    <div id="welcome-popup" class="popup-overlay">
-        <div class="popup-content">
-            <h2>Appia 과학학원</h2>
-            <p class="welcome-message">유선종 선생님의 학습 자료입니다.<br>비밀번호를 입력해주세요.</p>
-            <input type="password" id="popup-password" class="popup-password-input" placeholder="비밀번호">
-            <button id="popup-confirm" class="popup-confirm-btn">확인</button>
-            <p id="popup-error" class="popup-error-message"></p>
-        </div>
+
+    <div class="navbar" id="quiz-navbar">
+        <button onclick="navigateToPage(1)" data-page="1" class="active-nav">전기(1)</button>
+        <button onclick="navigateToPage(2)" data-page="2">전기(2)</button>
+        <button onclick="navigateToPage(3)" data-page="3">자기(1)</button>
+        <button onclick="navigateToPage(4)" data-page="4">자기(2)</button>
+        <button onclick="navigateToPage(5)" data-page="5">자기(3)</button>
+        <button onclick="navigateToPage(6)" data-page="6">파동(1)</button>
+        <button onclick="navigateToPage(7)" data-page="7">파동(2)</button>
+        <button onclick="navigateToPage(8)" data-page="8">이중성</button>
     </div>
-    <div class="quiz-container">
-        <h1>물리1 (비상) 2단원 - 물질과 전자기장 (1-79번)</h1>
-        <div class="page-info" id="page-info"></div>
-        <div id="quiz">
+
+    <div class="container">
+        <div class="page-header">
+            <h1>물리학1 개념확인 (비상 교과서)</h1>
+            <p class="academy-info">아피아과학 학원 (유선종T)</p>
+        </div>
+
+        <div class="question-page active" id="page-1">
+            <h2>II. 물질의 전기적 특성 (1/2) - 원자와 전기력, 원자의 스펙트럼</h2>
+            <h3>기본 개념: 원자와 전기력</h3>
+            
+            <div class="question" data-correct-answer="전자" data-type="fill" data-explanation="톰슨은 음극선 실험을 통해 (-)전하를 띠는 입자를 발견했으며, 이를 <strong>전자</strong>라고 명명했습니다. <span class='cite'>[교과서(물리) p.089]</span>">
+                <p>1. 1897년 톰슨은 기체 방전관에서 나오는 음극선이 전기력과 자기력에 의해 휘어지는 현상으로부터 음극선이 (-)전하를 띠는 입자임을 알아내었고, 이 입자를 ( )이라고 한다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p1_q1" value="양성자"> <span>양성자</span></label>
+                    <label><input type="radio" name="p1_q1" value="중성자"> <span>중성자</span></label>
+                    <label><input type="radio" name="p1_q1" value="전자"> <span>전자</span></label>
+                    <label><input type="radio" name="p1_q1" value="원자핵"> <span>원자핵</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
             </div>
-        <div class="pagination-controls" id="pagination-controls">
+            <div class="question" data-correct-answer="X" data-type="ox" data-explanation="틀렸습니다. 원자핵의 전하량은 기본 전하량의 양의 정수 배(Ze)가 맞지만, 원자 질량의 대부분은 <strong>원자핵의 질량</strong>입니다. 전자의 질량은 원자핵에 비해 매우 작습니다. <span class='cite'>[교과서(물리) p.089]</span>">
+                <p>2. 원자핵의 전하량은 기본 전하량의 양의 정수 배이며, 원자 질량의 대부분은 전자의 질량이다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p1_q2" value="O"> <span>O</span></label>
+                    <label><input type="radio" name="p1_q2" value="X"> <span>X</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
             </div>
-        <button id="submit-page-btn" class="action-button w-full sm:w-auto mx-auto block">이번 페이지 채점하기</button>
-        <div class="score-section" id="score-section" style="display: none;">
-            <p class="score-text quiz-title-in-score" id="quiz-main-title-in-score"></p> 
-            <p class="score-text" id="current-page-score-text"></p>
-            <p class="score-text" id="total-score-text"></p>
-            <p class="motivational-quote" id="motivational-quote" style="display: none;"></p> 
+            <div class="question" data-correct-answer="비례, 반비례" data-type="fill" data-explanation="쿨롱 법칙에 따르면, 두 전하 사이에 작용하는 전기력의 크기는 전하량의 곱에 <strong>비례</strong>하고, 거리의 제곱에 <strong>반비례</strong>합니다. <span class='cite'>[교과서(물리) p.090]</span>">
+                <p>3. 두 전하 사이에 작용하는 전기력의 크기는 각각의 전하량의 곱에 ( )하고, 두 전하 사이의 거리의 제곱에 ( )한다. 이를 쿨롱 법칙이라고 한다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p1_q3" value="비례, 반비례"> <span>비례, 반비례</span></label>
+                    <label><input type="radio" name="p1_q3" value="반비례, 비례"> <span>반비례, 비례</span></label>
+                    <label><input type="radio" name="p1_q3" value="비례, 비례"> <span>비례, 비례</span></label>
+                    <label><input type="radio" name="p1_q3" value="반비례, 반비례"> <span>반비례, 반비례</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+            <div class="question" data-correct-answer="X" data-type="ox" data-explanation="틀렸습니다. 원자 내의 전자와 원자핵 사이에는 주로 <strong>전기력</strong>(인력)이 작용하여 전자가 원자에 속박됩니다. 전기력에 비해 중력의 크기는 매우 작습니다. <span class='cite'>[교과서(물리) p.090-091]</span>">
+                <p>4. 원자 내의 전자와 원자핵 사이에는 주로 중력이 작용하여 전자가 원자에 속박된다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p1_q4" value="O"> <span>O</span></label>
+                    <label><input type="radio" name="p1_q4" value="X"> <span>X</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+             <div class="question" data-correct-answer="전기적 인력" data-type="fill" data-explanation="<span class='advanced-marker'>[심화]</span> 전자는 원자핵과의 <strong>전기적 인력</strong>에 의해 원자에 속박되어 있으므로, 원자핵으로부터 벗어나려면 이 전기적 인력을 극복할 만큼의 에너지를 외부에서 공급받아야 합니다. <span class='cite'>[교과서(물리) p.091]</span>">
+                <p><span class="advanced-marker">[심화]</span> 5. 전자가 원자핵에서 벗어나려면 외부에서 ( )을/를 극복할 수 있는 에너지를 공급해야 한다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p1_q5" value="핵력"> <span>핵력</span></label>
+                    <label><input type="radio" name="p1_q5" value="자기력"> <span>자기력</span></label>
+                    <label><input type="radio" name="p1_q5" value="중력"> <span>중력</span></label>
+                    <label><input type="radio" name="p1_q5" value="전기적 인력"> <span>전기적 인력</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+
+            <div class="question" data-correct-answer="X" data-type="ox" data-explanation="틀렸습니다. 모든 물질은 전기적으로 중성이지만, 이는 양성자의 총 전하량과 전자의 총 전하량이 같기 때문이며, 물질은 양전하와 음전하를 띤 입자로 구성되어 있습니다. <span class='cite'>[교과서(물리) p.088]</span>">
+                <p>6. 모든 물질은 전기적으로 중성이므로 전하를 띠지 않는다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p1_q6" value="O"> <span>O</span></label>
+                    <label><input type="radio" name="p1_q6" value="X"> <span>X</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+            <div class="question" data-correct-answer="양성자, 중성자" data-type="fill" data-explanation="원자핵은 (+)전하를 띤 <strong>양성자</strong>와 전하를 띠지 않는 <strong>중성자</strong>로 이루어져 있습니다. <span class='cite'>[교과서(물리) p.089]</span>">
+                <p>7. 원자핵은 ( )과/와 ( )으로 이루어져 있다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p1_q7" value="전자, 양성자"> <span>전자, 양성자</span></label>
+                    <label><input type="radio" name="p1_q7" value="양성자, 중성자"> <span>양성자, 중성자</span></label>
+                    <label><input type="radio" name="p1_q7" value="전자, 중성자"> <span>전자, 중성자</span></label>
+                    <label><input type="radio" name="p1_q7" value="쿼크, 렙톤"> <span>쿼크, 렙톤</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+            <div class="question" data-correct-answer="X" data-type="ox" data-explanation="틀렸습니다. 톰슨의 원자 모형은 양전하가 고르게 분포된 공 속에 전자가 박혀 있는 '건포도 푸딩 모형'입니다. 원자핵 주위를 전자가 도는 모형은 러더퍼드의 모형입니다. <span class='cite'>[교과서(물리) p.089]</span>">
+                <p>8. 톰슨의 원자 모형은 원자핵 주위를 전자가 돌고 있는 형태이다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p1_q8" value="O"> <span>O</span></label>
+                    <label><input type="radio" name="p1_q8" value="X"> <span>X</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+            <div class="question" data-correct-answer="당기는, 미는" data-type="fill" data-explanation="전기력은 전하의 종류가 다르면 서로 <strong>당기는</strong> 힘(인력)이고, 같으면 서로 <strong>미는</strong> 힘(척력)입니다. <span class='cite'>[교과서(물리) p.090]</span>">
+                <p>9. 전기력은 전하의 종류가 다르면 서로 ( ) 힘이고, 같으면 서로 ( ) 힘이다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p1_q9" value="미는, 당기는"> <span>미는, 당기는</span></label>
+                    <label><input type="radio" name="p1_q9" value="당기는, 미는"> <span>당기는, 미는</span></label>
+                    <label><input type="radio" name="p1_q9" value="당기는, 당기는"> <span>당기는, 당기는</span></label>
+                    <label><input type="radio" name="p1_q9" value="미는, 미는"> <span>미는, 미는</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+            <div class="question" data-correct-answer="X" data-type="ox" data-explanation="<span class='advanced-marker'>[심화]</span> 틀렸습니다. 도체 내의 자유 전자도 원자핵들로부터 전기력을 받지만, 특정 원자에 속박되지 않고 비교적 자유롭게 이동할 수 있는 것입니다. 인접한 많은 원자핵으로부터의 복합적인 전기장의 영향을 받습니다. <span class='cite'>[교과서(물리) p.091, 전반적 이해]</span>">
+                <p><span class="advanced-marker">[심화]</span> 10. 한 종류의 원소로 이루어진 도체 내에서 자유 전자가 이동할 때, 각 전자는 원자핵으로부터 전기력을 받지 않는다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p1_q10" value="O"> <span>O</span></label>
+                    <label><input type="radio" name="p1_q10" value="X"> <span>X</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+
+            <h3>기본 개념: 원자의 스펙트럼</h3>
+            <div class="question" data-correct-answer="스펙트럼" data-type="fill" data-explanation="<strong>스펙트럼</strong>은 빛을 프리즘이나 분광기를 통해 파장이나 진동수에 따라 분해하여 나타낸 색의 띠 또는 선의 배열입니다. <span class='cite'>[교과서(물리) p.092]</span>">
+                <p>11. 빛을 진동수에 따라 분해하여 표시한 것을 ( )이라고 한다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p1_q11" value="에너지 준위"> <span>에너지 준위</span></label>
+                    <label><input type="radio" name="p1_q11" value="스펙트럼"> <span>스펙트럼</span></label>
+                    <label><input type="radio" name="p1_q11" value="광자"> <span>광자</span></label>
+                    <label><input type="radio" name="p1_q11" value="양자수"> <span>양자수</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+            <div class="question" data-correct-answer="X" data-type="ox" data-explanation="틀렸습니다. 햇빛과 같이 고온의 물체에서 나오는 빛은 보통 <strong>연속 스펙트럼</strong>으로 나타납니다. 원자에서 직접 방출되는 빛에서 불연속적인 선 스펙트럼이 나타납니다. <span class='cite'>[교과서(물리) p.094]</span>">
+                <p>12. 햇빛과 같이 고온의 물체에서 나오는 빛은 보통 불연속적인 선 스펙트럼으로 나타난다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p1_q12" value="O"> <span>O</span></label>
+                    <label><input type="radio" name="p1_q12" value="X"> <span>X</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+            <div class="question" data-correct-answer="에너지" data-type="fill" data-explanation="보어는 원자 내 전자가 특정 에너지 준위를 가진 궤도에만 존재할 수 있다고 가정했습니다. 각 궤도의 전자는 정해진 <strong>에너지</strong>값을 가집니다. <span class='cite'>[교과서(물리) p.094]</span>">
+                <p>13. 보어의 원자 모형에 따르면, 원자에서 전자는 특정한 궤도만이 허용되고, 각각의 궤도에서 전자는 정해진 ( )값만을 가진다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p1_q13" value="질량"> <span>질량</span></label>
+                    <label><input type="radio" name="p1_q13" value="속도"> <span>속도</span></label>
+                    <label><input type="radio" name="p1_q13" value="에너지"> <span>에너지</span></label>
+                    <label><input type="radio" name="p1_q13" value="전하량"> <span>전하량</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+            <div class="question" data-correct-answer="X" data-type="ox" data-explanation="틀렸습니다. 전자가 에너지가 높은 바깥쪽 궤도에서 에너지가 낮은 안쪽 궤도로 전이할 때는 두 궤도의 에너지 차이만큼의 에너지를 가진 광자를 <strong>방출</strong>합니다. 광자를 흡수하는 것은 낮은 에너지 궤도에서 높은 에너지 궤도로 전이할 때입니다. <span class='cite'>[교과서(물리) p.094]</span>">
+                <p>14. 전자가 에너지가 높은 바깥쪽 궤도에서 에너지가 낮은 안쪽 궤도로 전이할 때 광자를 흡수한다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p1_q14" value="O"> <span>O</span></label>
+                    <label><input type="radio" name="p1_q14" value="X"> <span>X</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+            <div class="question" data-correct-answer="바닥" data-type="fill" data-explanation="<span class='advanced-marker'>[심화]</span> 수소 원자에서 가장 낮은 에너지 상태인 n=1 궤도의 에너지 준위를 <strong>바닥</strong> 상태라고 합니다. 전자가 이보다 높은 에너지 준위(n>1)에 있는 경우를 들뜬 상태라고 합니다. <span class='cite'>[교과서(물리) p.096, 그림 II-1-9 참조]</span>">
+                <p><span class="advanced-marker">[심화]</span> 15. 수소 원자에서 전자가 가질 수 있는 에너지 준위 E<sub>n</sub>은 주양자수 n에 대해 E<sub>n</sub> = -13.6/n<sup>2</sup> eV로 표현되며, n=1인 상태를 ( ) 상태라고 한다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p1_q15" value="들뜬"> <span>들뜬</span></label>
+                    <label><input type="radio" name="p1_q15" value="바닥"> <span>바닥</span></label>
+                    <label><input type="radio" name="p1_q15" value="이온"> <span>이온</span></label>
+                    <label><input type="radio" name="p1_q15" value="중성"> <span>중성</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+
+            <div class="question" data-correct-answer="에너지 준위" data-type="fill" data-explanation="기체의 종류에 따라 방출 스펙트럼에서 나타나는 선의 위치, 개수, 굵기가 다른 이유는 원자마다 고유한 <strong>에너지 준위</strong> 구조를 가지기 때문입니다. 이는 원소의 지문과 같습니다. <span class='cite'>[교과서(물리) p.093]</span>">
+                <p>16. 기체의 종류에 따라 방출 스펙트럼에서 나타나는 선의 위치, 개수, 굵기가 다른 이유는 원자마다 ( ) 구조가 다르기 때문이다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p1_q16" value="질량"> <span>질량</span></label>
+                    <label><input type="radio" name="p1_q16" value="크기"> <span>크기</span></label>
+                    <label><input type="radio" name="p1_q16" value="에너지 준위"> <span>에너지 준위</span></label>
+                    <label><input type="radio" name="p1_q16" value="색깔"> <span>색깔</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+            <div class="question" data-correct-answer="O" data-type="ox" data-explanation="정답입니다. 연속 스펙트럼은 무지개와 같이 모든 파장의 빛이 빈틈없이 연속적으로 나타나는 띠 모양의 스펙트럼입니다. <span class='cite'>[교과서(물리) p.094]</span>">
+                <p>17. 연속 스펙트럼은 모든 파장의 빛이 연속적으로 나타나는 띠 모양의 스펙트럼이다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p1_q17" value="O"> <span>O</span></label>
+                    <label><input type="radio" name="p1_q17" value="X"> <span>X</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+            <div class="question" data-correct-answer="정상" data-type="fill" data-explanation="보어의 원자 모형에서 전자가 특정 에너지 준위의 궤도를 따라 원운동 할 때는 에너지를 방출하거나 흡수하지 않고 안정된 상태를 유지하는데, 이 상태를 <strong>정상</strong> 상태(또는 정상 궤도)라고 합니다. <span class='cite'>[교과서(물리) p.094]</span>">
+                <p>18. 보어의 원자 모형에서 전자가 특정 궤도를 따라 원운동 할 때는 에너지를 방출하거나 흡수하지 않고 안정된 상태를 유지하며, 이 상태를 ( ) 상태라고 한다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p1_q18" value="바닥"> <span>바닥</span></label>
+                    <label><input type="radio" name="p1_q18" value="들뜬"> <span>들뜬</span></label>
+                    <label><input type="radio" name="p1_q18" value="정상"> <span>정상</span></label>
+                    <label><input type="radio" name="p1_q18" value="불안정"> <span>불안정</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+            <div class="question" data-correct-answer="X" data-type="ox" data-explanation="틀렸습니다. 전자가 한 에너지 준위에서 다른 에너지 준위로 전이할 때 방출하거나 흡수하는 광자 1개의 에너지는 두 에너지 준위의 에너지 <strong>차이</strong>와 같습니다 ($E_{광자} = |E_f - E_i|$). <span class='cite'>[교과서(물리) p.094]</span>">
+                <p>19. 전자가 한 에너지 준위에서 다른 에너지 준위로 전이할 때 방출하거나 흡수하는 광자 1개의 에너지는 두 에너지 준위의 에너지 합과 같다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p1_q19" value="O"> <span>O</span></label>
+                    <label><input type="radio" name="p1_q19" value="X"> <span>X</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+            <div class="question" data-correct-answer="2" data-type="fill" data-explanation="<span class='advanced-marker'>[심화]</span> 수소 원자의 선 스펙트럼에서 가시광선 영역에 해당하는 발머 계열은 전자가 주양자수 $n > 2$인 높은 에너지 준위에서 주양자수 $n_f = <strong>2</strong>$인 에너지 준위로 전이할 때 나타납니다. <span class='cite'>[교과서(물리) p.097]</span>">
+                <p><span class="advanced-marker">[심화]</span> 20. 수소 원자의 선 스펙트럼에서 특정 계열의 빛은 전자가 높은 에너지 준위에서 특정 낮은 에너지 준위($n_f$)로 전이할 때 나타난다. 예를 들어, 가시광선 영역의 발머 계열은 $n_f = (\quad)$로 전이할 때 발생한다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p1_q20" value="1"> <span>1</span></label>
+                    <label><input type="radio" name="p1_q20" value="2"> <span>2</span></label>
+                    <label><input type="radio" name="p1_q20" value="3"> <span>3</span></label>
+                    <label><input type="radio" name="p1_q20" value="무한대"> <span>무한대</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+
+            <button class="page-score-button" onclick="scoreCurrentPage(1)">이번 페이지 채점하기</button>
+            <div class="page-score-display" id="page-score-1">점수: 0 / 20</div>
+        </div>
+
+        <div class="question-page" id="page-2">
+            <h2>II. 물질의 전기적 특성 (2/2) - 에너지띠, 반도체</h2>
+            <h3>기본 개념: 에너지띠</h3>
+            <div class="question" data-correct-answer="에너지띠" data-type="fill" data-explanation="고체 결정에서 많은 원자들이 가까이 위치하면 각 원자의 에너지 준위가 서로 영향을 받아 약간씩 갈라지게 되고, 이 갈라진 수많은 에너지 준위들이 모여 거의 연속적인 띠를 이루는데 이를 <strong>에너지띠</strong>라고 합니다. <span class='cite'>[교과서(물리) p.099]</span>">
+                <p>21. 고체 내에서 원자들이 매우 가까이 모여 있을 때, 원자의 에너지 준위들이 갈라져 매우 촘촘하게 모여 거의 연속적인 띠처럼 보이는 것을 ( )라고 한다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p2_q1" value="띠 간격"> <span>띠 간격</span></label>
+                    <label><input type="radio" name="p2_q1" value="에너지띠"> <span>에너지띠</span></label>
+                    <label><input type="radio" name="p2_q1" value="원자가 띠"> <span>원자가 띠</span></label>
+                    <label><input type="radio" name="p2_q1" value="전도띠"> <span>전도띠</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+            <div class="question" data-correct-answer="X" data-type="ox" data-explanation="틀렸습니다. 에너지띠 사이의 간격, 즉 <strong>띠 간격</strong>(또는 금지대)은 전자가 가질 수 없는 에너지 영역입니다. <span class='cite'>[교과서(물리) p.099]</span>">
+                <p>22. 에너지띠 사이의 간격, 즉 띠 간격에는 전자가 존재할 수 있다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p2_q2" value="O"> <span>O</span></label>
+                    <label><input type="radio" name="p2_q2" value="X"> <span>X</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+            <div class="question" data-correct-answer="원자가 띠, 전도띠" data-type="fill" data-explanation="절연체나 반도체에서 전자가 채워진 가장 높은 에너지띠를 <strong>원자가 띠</strong>라고 하고, 원자가 띠 바로 위에 있는 비어 있거나 부분적으로 채워질 수 있는 에너지띠를 <strong>전도띠</strong>라고 합니다. <span class='cite'>[교과서(물리) p.101]</span>">
+                <p>23. 절연체에서 전자가 완전히 채워진 에너지띠 중 가장 위쪽에 있는 띠를 ( )라고 하며, 그 바로 위의 비어있는 에너지띠를 ( )라고 한다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p2_q3" value="전도띠, 원자가 띠"> <span>전도띠, 원자가 띠</span></label>
+                    <label><input type="radio" name="p2_q3" value="에너지띠, 띠 간격"> <span>에너지띠, 띠 간격</span></label>
+                    <label><input type="radio" name="p2_q3" value="원자가 띠, 전도띠"> <span>원자가 띠, 전도띠</span></label>
+                    <label><input type="radio" name="p2_q3" value="띠 간격, 에너지띠"> <span>띠 간격, 에너지띠</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+            <div class="question" data-correct-answer="O" data-type="ox" data-explanation="도체는 에너지띠에 전자가 완전히 채워지지 않았거나 (일부가 비어 있거나) 원자가 띠와 전도띠가 겹쳐 있어 전자가 약간의 에너지만 얻어도 쉽게 빈 에너지 준위로 이동하여 전류를 잘 흐르게 합니다. <span class='cite'>[교과서(물리) p.100-101]</span>">
+                <p>24. 도체는 원자가 띠의 일부가 비어 있거나 원자가 띠와 전도띠가 겹쳐 있어 전자가 쉽게 이동하여 전류가 잘 흐른다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p2_q4" value="O"> <span>O</span></label>
+                    <label><input type="radio" name="p2_q4" value="X"> <span>X</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+            <div class="question" data-correct-answer="좁아서" data-type="fill" data-explanation="<span class='advanced-marker'>[심화]</span> 반도체는 절연체보다 띠 간격이 상대적으로 <strong>좁아서</strong> 상온의 열에너지에 의해서도 일부 전자가 원자가 띠에서 전도띠로 전이할 수 있어 약간의 전기 전도성을 가집니다. <span class='cite'>[교과서(물리) p.101]</span>">
+                <p><span class="advanced-marker">[심화]</span> 25. 반도체는 절연체에 비해 띠 간격이 ( ) 상온에서도 일부 전자가 원자가 띠에서 전도띠로 쉽게 전이하여 전기 전도성을 나타낸다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p2_q5" value="넓어서"> <span>넓어서</span></label>
+                    <label><input type="radio" name="p2_q5" value="좁아서"> <span>좁아서</span></label>
+                    <label><input type="radio" name="p2_q5" value="없어서"> <span>없어서</span></label>
+                    <label><input type="radio" name="p2_q5" value="매우 넓어서"> <span>매우 넓어서</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+
+            <div class="question" data-correct-answer="X" data-type="ox" data-explanation="틀렸습니다. 에너지띠는 고체 상태에서 이웃한 원자들이 서로 가깝게 위치하여 각 원자의 에너지 준위들이 상호작용하면서 형성됩니다. 기체 상태의 원자들은 서로 멀리 떨어져 있어 에너지띠를 형성하지 않습니다. <span class='cite'>[교과서(물리) p.099]</span>">
+                <p>26. 기체 상태의 원자들은 에너지 준위가 겹쳐 에너지띠를 형성한다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p2_q6" value="O"> <span>O</span></label>
+                    <label><input type="radio" name="p2_q6" value="X"> <span>X</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+            <div class="question" data-correct-answer="불연속적" data-type="fill" data-explanation="에너지띠는 매우 촘촘하게 모인 다수의 <strong>불연속적</strong>인 에너지 준위들로 구성됩니다. 거시적으로는 연속적인 띠처럼 보일 수 있습니다. <span class='cite'>[교과서(물리) p.099]</span>">
+                <p>27. 고체에서 허용된 띠에 있는 전자의 에너지는 (연속적/불연속적)인 값을 가진다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p2_q7" value="연속적"> <span>연속적</span></label>
+                    <label><input type="radio" name="p2_q7" value="불연속적"> <span>불연속적</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+            <div class="question" data-correct-answer="X" data-type="ox" data-explanation="틀렸습니다. 도체의 경우 원자가띠와 전도띠 사이의 띠 간격이 없거나(겹쳐있거나) 매우 좁아서 전자가 쉽게 전도띠로 이동하여 전류가 잘 흐릅니다. 띠 간격이 매우 넓은 것은 절연체입니다. <span class='cite'>[교과서(물리) p.100]</span>">
+                <p>28. 도체의 경우 원자가띠와 전도띠 사이의 띠 간격이 매우 넓어 전자가 쉽게 이동할 수 없다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p2_q8" value="O"> <span>O</span></label>
+                    <label><input type="radio" name="p2_q8" value="X"> <span>X</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+            <div class="question" data-correct-answer="절연체" data-type="fill" data-explanation="반도체는 절대 온도 0K에서는 원자가 띠에 전자가 가득 차 있고 전도띠는 비어 있으며 띠 간격이 있어 전자가 이동하기 어렵기 때문에 전류가 흐르지 않는 <strong>절연체</strong>와 같이 행동합니다. <span class='cite'>[교과서(물리) p.101]</span>">
+                <p>29. 반도체는 절대 온도 0K에서는 전도띠에 전자가 없어 전류가 흐르지 않는 ( )와/과 같이 행동한다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p2_q9" value="도체"> <span>도체</span></label>
+                    <label><input type="radio" name="p2_q9" value="초전도체"> <span>초전도체</span></label>
+                    <label><input type="radio" name="p2_q9" value="절연체"> <span>절연체</span></label>
+                    <label><input type="radio" name="p2_q9" value="유전체"> <span>유전체</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+            <div class="question" data-correct-answer="O" data-type="ox" data-explanation="<span class='advanced-marker'>[심화]</span> 정답입니다. 고체의 전기 전도도는 전도띠로 쉽게 올라갈 수 있는 전자의 수(전하 나르개의 농도)와 이 전자들이 얼마나 쉽게 이동할 수 있는지(이동성)에 의해 결정됩니다. <span class='cite'>[교과서(물리) p.100-101 전반적 이해]</span>">
+                <p><span class="advanced-marker">[심화]</span> 30. 고체의 전기 전도도는 전도띠에 있는 전자의 수와 전자의 이동성에 의해 결정된다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p2_q10" value="O"> <span>O</span></label>
+                    <label><input type="radio" name="p2_q10" value="X"> <span>X</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+
+            <h3>기본 개념: 반도체</h3>
+            <div class="question" data-correct-answer="도핑" data-type="fill" data-explanation="순수 반도체에 소량의 불순물을 의도적으로 첨가하여 전기적 특성을 변화시키는 과정을 <strong>도핑</strong>이라고 합니다. <span class='cite'>[교과서(물리) p.104]</span>">
+                <p>31. 순수한 반도체에 불순물을 첨가하여 전기 전도성을 조절하는 과정을 ( )이라고 한다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p2_q11" value="접합"> <span>접합</span></label>
+                    <label><input type="radio" name="p2_q11" value="도핑"> <span>도핑</span></label>
+                    <label><input type="radio" name="p2_q11" value="정류"> <span>정류</span></label>
+                    <label><input type="radio" name="p2_q11" value="증폭"> <span>증폭</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+            <div class="question" data-correct-answer="X" data-type="ox" data-explanation="틀렸습니다. p형 반도체는 순수한 규소(Si)에 원자가 전자가 3개인 붕소(B)와 같은 13족 원소를 도핑하여 만듭니다. 이때 양공이 주된 전하 나르개가 됩니다. 원자가 전자가 5개인 원소를 도핑하면 n형 반도체가 되며, 전자가 주된 전하 나르개가 됩니다. <span class='cite'>[교과서(물리) p.105]</span>">
+                <p>32. p형 반도체는 순수한 규소에 원자가 전자가 5개인 인(P)과 같은 15족 원소를 도핑하여 만들며, 주된 전하 나르개는 전자이다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p2_q12" value="O"> <span>O</span></label>
+                    <label><input type="radio" name="p2_q12" value="X"> <span>X</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+             <div class="question" data-correct-answer="5, 15" data-type="fill" data-explanation="n형 반도체는 원자가 전자가 <strong>5</strong>개인 <strong>15</strong>족 원소(예: 인(P), 비소(As))를 순수 반도체에 도핑하여 만듭니다. 이 여분의 전자가 자유롭게 움직이며 전류를 흐르게 하는 주된 전하 나르개가 됩니다. <span class='cite'>[교과서(물리) p.105]</span>">
+                <p>33. n형 반도체는 순수한 규소(Si)에 원자가 전자가 ( )개인 ( )족 원소(예: 인(P), 비소(As))를 도핑하여 만들며, 여분의 전자가 주된 전하 나르개 역할을 한다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p2_q13" value="3, 13"> <span>3, 13</span></label>
+                    <label><input type="radio" name="p2_q13" value="4, 14"> <span>4, 14</span></label>
+                    <label><input type="radio" name="p2_q13" value="5, 15"> <span>5, 15</span></label>
+                    <label><input type="radio" name="p2_q13" value="6, 16"> <span>6, 16</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+            <div class="question" data-correct-answer="X" data-type="ox" data-explanation="틀렸습니다. p-n 접합 다이오드에 순방향 바이어스 전압(p형에 (+), n형에 (-)극 연결)을 걸면 접합면 부근의 공핍층(결핍 영역)이 <strong>좁아져</strong> 양공과 전자가 쉽게 이동하여 전류가 잘 흐릅니다. 역방향 바이어스일 때 공핍층이 넓어져 전류가 거의 흐르지 않습니다. <span class='cite'>[교과서(물리) p.106-107]</span>">
+                <p>34. p-n 접합 다이오드에 순방향 바이어스 전압을 걸면 접합면의 공핍층이 넓어져 전류가 거의 흐르지 않는다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p2_q14" value="O"> <span>O</span></label>
+                    <label><input type="radio" name="p2_q14" value="X"> <span>X</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+            <div class="question" data-correct-answer="빛" data-type="fill" data-explanation="<span class='advanced-marker'>[심화]</span> 발광 다이오드(LED)는 순방향 전류가 흐를 때 p-n 접합부에서 전자와 양공이 재결합하면서 감소된 에너지만큼을 <strong>빛</strong> 에너지 형태로 방출하는 원리를 이용합니다. 방출되는 빛의 색깔은 반도체 물질의 띠 간격 에너지에 따라 달라집니다. <span class='cite'>[교과서(물리) p.107 자료실]</span>">
+                <p><span class="advanced-marker">[심화]</span> 35. 발광 다이오드(LED)는 p-n 접합 다이오드에 순방향 전류가 흐를 때, 전자와 양공이 접합면에서 재결합하면서 그 에너지 차이에 해당하는 에너지를 ( )의 형태로 방출하는 반도체 소자이다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p2_q15" value="열"> <span>열</span></label>
+                    <label><input type="radio" name="p2_q15" value="소리"> <span>소리</span></label>
+                    <label><input type="radio" name="p2_q15" value="빛"> <span>빛</span></label>
+                    <label><input type="radio" name="p2_q15" value="운동"> <span>운동</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+            
+            <div class="question" data-correct-answer="4, 공유" data-type="fill" data-explanation="순수 반도체의 대표적인 예인 규소(Si)나 저마늄(Ge)은 원자가 전자를 <strong>4</strong>개 가지고 있으며, 이웃한 4개의 원자들과 각각 전자를 하나씩 내놓아 <strong>공유</strong> 결합을 하여 안정한 결정 구조를 이룹니다. <span class='cite'>[교과서(물리) p.104]</span>">
+                <p>36. 순수 반도체인 규소(Si)나 저마늄(Ge)은 ( )개의 원자가 전자를 가지고 이웃한 원자들과 ( ) 결합을 한다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p2_q16" value="3, 이온"> <span>3, 이온</span></label>
+                    <label><input type="radio" name="p2_q16" value="4, 공유"> <span>4, 공유</span></label>
+                    <label><input type="radio" name="p2_q16" value="5, 금속"> <span>5, 금속</span></label>
+                    <label><input type="radio" name="p2_q16" value="4, 이온"> <span>4, 이온</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+            <div class="question" data-correct-answer="X" data-type="ox" data-explanation="틀렸습니다. n형 반도체는 원자가 전자가 5개인 불순물을 첨가하여 만들며, 남는 전자가 주된 전하 나르개가 됩니다. p형 반도체에서 주된 전하 나르개는 양공입니다. <span class='cite'>[교과서(물리) p.105]</span>">
+                <p>37. n형 반도체에서 주된 전하 나르개는 양공이다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p2_q17" value="O"> <span>O</span></label>
+                    <label><input type="radio" name="p2_q17" value="X"> <span>X</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+            <div class="question" data-correct-answer="정류" data-type="fill" data-explanation="p-n 접합 다이오드는 순방향 전압에서는 전류를 잘 흐르게 하고, 역방향 전압에서는 전류를 거의 흐르지 못하게 하는 성질을 이용하여 교류를 직류로 바꾸는 <strong>정류</strong> 작용을 합니다. <span class='cite'>[교과서(물리) p.106]</span>">
+                <p>38. p-n 접합 다이오드는 전류를 한쪽 방향으로만 잘 흐르게 하는 ( ) 작용을 한다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p2_q18" value="증폭"> <span>증폭</span></label>
+                    <label><input type="radio" name="p2_q18" value="스위칭"> <span>스위칭</span></label>
+                    <label><input type="radio" name="p2_q18" value="정류"> <span>정류</span></label>
+                    <label><input type="radio" name="p2_q18" value="발광"> <span>발광</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+            <div class="question" data-correct-answer="X" data-type="ox" data-explanation="틀렸습니다. p-n 접합 다이오드에 역방향 전압(p형에 (-), n형에 (+)극 연결)을 걸면 p형 반도체의 양공과 n형 반도체의 전자가 각각 전원 쪽으로 끌려가 접합면에서 멀어지고, 공핍층이 넓어져 전류가 거의 흐르지 않습니다. <span class='cite'>[교과서(물리) p.107]</span>">
+                <p>39. p-n 접합 다이오드에 역방향 전압을 걸면 p형 반도체의 양공과 n형 반도체의 전자가 접합면 쪽으로 이동하여 전류가 잘 흐른다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p2_q19" value="O"> <span>O</span></label>
+                    <label><input type="radio" name="p2_q19" value="X"> <span>X</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+            <div class="question" data-correct-answer="3" data-type="fill" data-explanation="<span class='advanced-marker'>[심화]</span> 트랜지스터는 p형 반도체와 n형 반도체를 p-n-p 또는 n-p-n 형태로 <strong>3</strong>개 층으로 접합하여 만든 반도체 소자로, 전류의 증폭 작용이나 스위치 작용을 합니다. <span class='cite'>[교과서(물리) p.108]</span>">
+                <p><span class="advanced-marker">[심화]</span> 40. 트랜지스터는 p형과 n형 반도체를 ( ) 개 접합한 구조로, 전류의 증폭 작용이나 스위치 작용을 한다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p2_q20" value="1"> <span>1</span></label>
+                    <label><input type="radio" name="p2_q20" value="2"> <span>2</span></label>
+                    <label><input type="radio" name="p2_q20" value="3"> <span>3</span></label>
+                    <label><input type="radio" name="p2_q20" value="4"> <span>4</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+
+            <button class="page-score-button" onclick="scoreCurrentPage(2)">이번 페이지 채점하기</button>
+            <div class="page-score-display" id="page-score-2">점수: 0 / 20</div>
+        </div>
+
+        <div class="question-page" id="page-3">
+            <h2>II. 물질의 자기적 특성 (1/3) - 전류에 의한 자기 작용</h2>
+            <h3>기본 개념</h3>
+            <div class="question" data-correct-answer="자기장" data-type="fill" data-explanation="자기장 내에 놓인 나침반 자침의 N극이 가리키는 방향을 그 지점에서의 <strong>자기장</strong>의 방향으로 정의합니다. <span class='cite'>[교과서(물리) p.114]</span>">
+                <p>41. 자석 주위에 나침반을 놓으면 자침의 N극이 가리키는 방향이 그 위치에서의 ( ) 방향이다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p3_q1" value="전기장"> <span>전기장</span></label>
+                    <label><input type="radio" name="p3_q1" value="중력장"> <span>중력장</span></label>
+                    <label><input type="radio" name="p3_q1" value="자기장"> <span>자기장</span></label>
+                    <label><input type="radio" name="p3_q1" value="전류"> <span>전류</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+            <div class="question" data-correct-answer="X" data-type="ox" data-explanation="틀렸습니다. 자기력선은 자석의 <strong>N극에서 나와 S극으로</strong> 향하는 선으로 나타냅니다. <span class='cite'>[교과서(물리) p.114]</span>">
+                <p>42. 자기력선은 자석의 S극에서 나와 N극으로 들어간다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p3_q2" value="O"> <span>O</span></label>
+                    <label><input type="radio" name="p3_q2" value="X"> <span>X</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+            <div class="question" data-correct-answer="감아쥐는" data-type="fill" data-explanation="직선 전류 주위의 자기장 방향은 오른나사 법칙(앙페르의 오른손 법칙)으로 결정됩니다. 오른손 엄지손가락을 전류 방향으로 향하게 할 때 나머지 네 손가락이 도선을 <strong>감아쥐는</strong> 방향이 자기장의 방향입니다. <span class='cite'>[교과서(물리) p.116]</span>">
+                <p>43. 직선 도선에 흐르는 전류에 의한 자기장의 방향은 오른손 엄지손가락이 전류의 방향을 가리키도록 했을 때, 나머지 네 손가락을 ( ) 방향이다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p3_q3" value="펴는"> <span>펴는</span></label>
+                    <label><input type="radio" name="p3_q3" value="감아쥐는"> <span>감아쥐는</span></label>
+                    <label><input type="radio" name="p3_q3" value="가리키는"> <span>가리키는</span></label>
+                    <label><input type="radio" name="p3_q3" value="수직인"> <span>수직인</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+            <div class="question" data-correct-answer="X" data-type="ox" data-explanation="틀렸습니다. 직선 전류에 의한 자기장의 세기는 전류의 세기에 <strong>비례</strong>하고, 도선으로부터의 거리에 <strong>반비례</strong>합니다 (앙페르 법칙). <span class='cite'>[교과서(물리) p.116]</span>">
+                <p>44. 직선 전류에 의한 자기장의 세기는 전류의 세기에 반비례하고, 도선으로부터의 거리에 비례한다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p3_q4" value="O"> <span>O</span></label>
+                    <label><input type="radio" name="p3_q4" value="X"> <span>X</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+            <div class="question" data-correct-answer="솔레노이드, 균일한" data-type="fill" data-explanation="<strong>솔레노이드</strong>는 도선을 촘촘하게 원통형으로 감은 코일입니다. 솔레노이드에 전류가 흐르면 그 내부에는 축에 나란한 방향으로 비교적 <strong>균일한</strong> 자기장이 형성됩니다. <span class='cite'>[교과서(물리) p.117]</span>">
+                <p>45. 도선을 여러 번 감아 원통 모양으로 만든 것을 ( )라고 하며, 이것에 전류가 흐르면 내부에는 중심축에 나란하고 ( ) 자기장이 형성된다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p3_q5" value="토로이드, 불균일한"> <span>토로이드, 불균일한</span></label>
+                    <label><input type="radio" name="p3_q5" value="솔레노이드, 균일한"> <span>솔레노이드, 균일한</span></label>
+                    <label><input type="radio" name="p3_q5" value="코일, 강한"> <span>코일, 강한</span></label>
+                    <label><input type="radio" name="p3_q5" value="전자석, 변하는"> <span>전자석, 변하는</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+            <div class="question" data-correct-answer="X" data-type="ox" data-explanation="틀렸습니다. 솔레노이드 내부 자기장의 세기는 전류의 세기와 단위 길이당 코일의 감은 수에 <strong>비례</strong>합니다. <span class='cite'>[교과서(물리) p.117]</span>">
+                <p>46. 솔레노이드 내부에서 자기장의 세기는 단위 길이당 코일의 감은 수에 반비례한다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p3_q6" value="O"> <span>O</span></label>
+                    <label><input type="radio" name="p3_q6" value="X"> <span>X</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+            <div class="question" data-correct-answer="교류, 자기력" data-type="fill" data-explanation="<span class='advanced-marker'>[심화]</span> 스피커는 소리 신호에 따른 <strong>교류</strong> 전류가 코일에 흐르면서 변화하는 자기장을 만들고, 이 자기장이 영구 자석의 자기장과 상호작용하여 <strong>자기력</strong>을 받아 코일과 연결된 진동판을 진동시켜 소리를 발생시킵니다. <span class='cite'>[교과서(물리) p.119]</span>">
+                <p><span class="advanced-marker">[심화]</span> 47. 스피커는 코일에 소리 정보에 의한 ( ) 전류가 흐를 때, 코일을 통과하는 자기장이 주기적으로 변하면서 영구 자석과 코일 사이에 ( )이/가 작용하여 진동판을 움직여 소리를 만든다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p3_q7" value="직류, 전기력"> <span>직류, 전기력</span></label>
+                    <label><input type="radio" name="p3_q7" value="교류, 자기력"> <span>교류, 자기력</span></label>
+                    <label><input type="radio" name="p3_q7" value="맥동 전류, 중력"> <span>맥동 전류, 중력</span></label>
+                    <label><input type="radio" name="p3_q7" value="유도 전류, 탄성력"> <span>유도 전류, 탄성력</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+            <div class="question" data-correct-answer="X" data-type="ox" data-explanation="<span class='advanced-marker'>[심화]</span> 틀렸습니다. MRI는 강한 <strong>자기장</strong> 속에 인체를 두고 고주파의 <strong>자기장</strong>(또는 전자기파)을 가하여 몸속 수소 원자핵이 공명하며 내는 신호를 영상화하는 장치입니다. <span class='cite'>[교과서(물리) p.119]</span>">
+                <p><span class="advanced-marker">[심화]</span> 48. 자기 공명 영상(MRI) 장치는 인체에 고주파의 전기장을 발생시켜 수소 원자핵의 공명 현상을 이용해 인체 내부를 영상화한다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p3_q8" value="O"> <span>O</span></label>
+                    <label><input type="radio" name="p3_q8" value="X"> <span>X</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+            <div class="question" data-correct-answer="전류" data-type="fill" data-explanation="자동차 연료 계기판은 연료 탱크 내 부표의 위치에 따라 저항값이 변하여 코일에 흐르는 <strong>전류</strong>의 세기가 달라지고, 이 전류에 의한 자기장이 영구 자석과 상호작용하여 바늘을 움직여 연료량을 나타냅니다. <span class='cite'>[교과서(물리) p.118]</span>">
+                <p>49. 자동차 연료 계기판은 연료량에 따라 코일에 흐르는 ( )가 변하고, 이에 따른 자기장과 자석의 자기장 상호작용으로 바늘이 움직여 연료량을 표시한다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p3_q9" value="전압"> <span>전압</span></label>
+                    <label><input type="radio" name="p3_q9" value="저항"> <span>저항</span></label>
+                    <label><input type="radio" name="p3_q9" value="전류"> <span>전류</span></label>
+                    <label><input type="radio" name="p3_q9" value="자기 선속"> <span>자기 선속</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+            <div class="question" data-correct-answer="X" data-type="ox" data-explanation="틀렸습니다. 솔레노이드 내부에 철심(강자성체)을 넣으면 철심이 자기화되어 솔레노이드가 만드는 자기장을 더욱 <strong>강하게</strong> 합니다. 이를 전자석이라고 합니다. <span class='cite'>[교과서(물리) p.117, 123]</span>">
+                <p>50. 솔레노이드 내부에 철심을 넣으면 자기장이 약해진다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p3_q10" value="O"> <span>O</span></label>
+                    <label><input type="radio" name="p3_q10" value="X"> <span>X</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+
+            <div class="question" data-correct-answer="O" data-type="ox" data-explanation="정답입니다. 자기력선은 자석의 N극에서 나와 S극으로 들어가며, 도중에 끊어지거나 서로 교차하지 않는 연속적인 폐곡선입니다. <span class='cite'>[교과서(물리) p.114]</span>">
+                <p>51. 자기력선은 서로 교차하거나 끊어지지 않는다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p3_q11" value="O"> <span>O</span></label>
+                    <label><input type="radio" name="p3_q11" value="X"> <span>X</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+            <div class="question" data-correct-answer="비례, 반비례" data-type="fill" data-explanation="원형 도선 중심에서의 자기장의 세기는 도선에 흐르는 전류의 세기에 <strong>비례</strong>하고, 원형 도선의 반지름에 <strong>반비례</strong>합니다. <span class='cite'>[교과서(물리) p.117]</span>">
+                <p>52. 원형 도선 중심에서의 자기장의 세기는 전류의 세기에 ( )하고, 도선의 반지름에 ( )한다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p3_q12" value="비례, 비례"> <span>비례, 비례</span></label>
+                    <label><input type="radio" name="p3_q12" value="반비례, 비례"> <span>반비례, 비례</span></label>
+                    <label><input type="radio" name="p3_q12" value="비례, 반비례"> <span>비례, 반비례</span></label>
+                    <label><input type="radio" name="p3_q12" value="반비례, 반비례"> <span>반비례, 반비례</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+            <div class="question" data-correct-answer="X" data-type="ox" data-explanation="틀렸습니다. 솔레노이드 내부의 자기장은 매우 강하고 비교적 균일한 반면, 외부의 자기장은 상대적으로 매우 약하고 넓게 퍼져나갑니다. <span class='cite'>[교과서(물리) p.117]</span>">
+                <p>53. 솔레노이드 외부의 자기장은 내부의 자기장보다 세기가 강하고 균일하다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p3_q13" value="O"> <span>O</span></label>
+                    <label><input type="radio" name="p3_q13" value="X"> <span>X</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+            <div class="question" data-correct-answer="자기력" data-type="fill" data-explanation="전류가 흐르는 도선이 자기장 속에 놓이면 힘을 받는데, 이 힘을 <strong>자기력</strong>이라고 합니다. 전동기는 이 자기력을 이용한 대표적인 장치입니다. <span class='cite'>[교과서(물리) p.118 개념 확인]</span>">
+                <p>54. 전류가 흐르는 도선이 자기장 속에서 받는 힘을 ( )이라고 하며, 이 힘의 방향은 플레밍의 왼손 법칙으로 알 수 있다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p3_q14" value="전기력"> <span>전기력</span></label>
+                    <label><input type="radio" name="p3_q14" value="중력"> <span>중력</span></label>
+                    <label><input type="radio" name="p3_q14" value="자기력"> <span>자기력</span></label>
+                    <label><input type="radio" name="p3_q14" value="탄성력"> <span>탄성력</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+            <div class="question" data-correct-answer="O" data-type="ox" data-explanation="<span class='advanced-marker'>[심화]</span> 정답입니다. 전류계는 내부 코일에 전류가 흐를 때 영구 자석에 의한 자기장으로부터 자기력을 받아 회전하고, 이 회전 각도를 통해 전류의 세기를 측정하는 원리로 작동합니다. <span class='cite'>[교과서(물리) p.118]</span>">
+                <p><span class="advanced-marker">[심화]</span> 55. 전류계는 전류가 흐르는 코일이 영구 자석의 자기장 속에서 받는 자기력을 이용하여 바늘을 회전시켜 전류의 세기를 측정한다.</p>
+                <div class="options">
+                    <label><input type="radio" name="p3_q15" value="O"> <span>O</span></label>
+                    <label><input type="radio" name="p3_q15" value="X"> <span>X</span></label>
+                </div>
+                <div class="answer-feedback"></div><div class="detailed-explanation"></div>
+            </div>
+
+            <button class="page-score-button" onclick="scoreCurrentPage(3)">이번 페이지 채점하기</button>
+            <div class="page-score-display" id="page-score-3">점수: 0 / 15</div>
+        </div>
+
+        <div class="pagination-controls">
+            <button id="prev-page-btn" onclick="changePage(-1)" disabled>이전 페이지</button>
+            <span class="page-info" id="page-indicator">Page 1 / 8</span>
+            <button id="next-page-btn" onclick="changePage(1)">다음 페이지</button>
         </div>
     </div>
 
     <script>
-        // 문제 데이터 (PDF "물리(비상)-2단원 암기 (답).pdf" 기준)
-        const questions = [
-            {
-                id: 1, type: 'fill-in', text: "1. 톰슨의 (   ) 실험으로 알아낸 입자는 (   )이다.", 
-                answer: "음극선;전자", options: ["알파입자 산란;원자핵", "음극선;전자", "광전효과;광자", "유적실험;기본전하량"],
-                explanation: "톰슨은 음극선 실험을 통해 음극선이 질량을 가지며 음(-)전하를 띤 입자의 흐름이라는 것을 발견했고, 이 입자를 전자라고 명명했습니다."
-            },
-            {
-                id: 2, type: 'fill-in', text: "2. 알파입자는 (   )전하를 띤다.", 
-                answer: "+", options: ["-", "+", "0", "알 수 없음"],
-                explanation: "알파입자는 헬륨 원자핵(<sup>4</sup>He<sup>2+</sup>)으로, 양성자 2개와 중성자 2개로 이루어져 있어 +2의 양전하를 띱니다."
-            },
-            {
-                id: 3, type: 'fill-in', text: "3. 러더퍼드는 (   )이 원자의 중심에 존재한다고 주장했다.", 
-                answer: "원자핵", options: ["전자", "양성자", "원자핵", "중성자"],
-                explanation: "러더퍼드는 알파입자 산란 실험을 통해 원자 질량의 대부분을 차지하며 양(+)전하를 띤 원자핵이 원자의 중심에 매우 작은 공간을 차지하며 존재한다고 결론 내렸습니다."
-            },
-            {
-                id: 4, type: 'fill-in', text: "4. 원자 질량의 대부분은 (   )이다.", 
-                answer: "원자핵", options: ["전자", "빈 공간", "전자구름", "원자핵"],
-                explanation: "원자핵은 양성자와 중성자로 이루어져 있으며, 전자의 질량은 양성자나 중성자에 비해 매우 작으므로 원자 질량의 대부분은 원자핵이 차지합니다."
-            },
-            {
-                id: 5, type: 'fill-in', text: "5. 원자를 구성하는 요소는 (   )와 (   )이다.", 
-                answer: "전자;원자핵", options: ["양성자;중성자", "전자;원자핵", "쿼크;렙톤", "분자;이온"],
-                explanation: "원자는 중심의 원자핵과 그 주위를 돌고 있는 전자로 구성됩니다. 원자핵은 다시 양성자와 중성자로 이루어집니다."
-            },
-            {
-                id: 6, type: 'fill-in', text: "6. 쿨롱은 두 전하 사이에 작용하는 (   )의 크기를 측정하기 위해 (   )을 사용했다.", 
-                answer: "전기력;비틀림 저울", options: ["중력;만유인력계", "자기력;나침반", "전기력;비틀림 저울", "탄성력;용수철저울"],
-                explanation: "쿨롱은 비틀림 저울을 사용하여 두 점전하 사이에 작용하는 전기력의 크기를 정밀하게 측정하고 쿨롱 법칙을 발견했습니다. (PDF의 '비틀림 거울'은 '비틀림 저울'의 오기로 보입니다.)"
-            },
-            {
-                id: 7, type: 'fill-in', text: "7. 쿨롱은 두 전하 사이에는 각각의 (   )에 비례하고, (   )에 반비례하는 (   )이 작용한다는 것을 알아냈다.", 
-                answer: "전하량의 곱;거리의 제곱;전기력", 
-                options: ["전하량의 합;거리;자기력", "질량의 곱;거리의 제곱;중력", "전하량의 곱;거리의 제곱;전기력", "전류의 세기;저항;전압"],
-                explanation: "쿨롱 법칙에 따르면, 두 전하 사이에 작용하는 전기력의 크기는 두 전하량의 곱에 비례하고, 두 전하 사이의 거리의 제곱에 반비례합니다."
-            },
-            {
-                id: 8, type: 'fill-in', text: "8. 전기력은 전하의 종류가 같으면 (   )이 작용한다.", 
-                answer: "척력", options: ["인력", "중력", "자기력", "척력"],
-                explanation: "같은 종류의 전하(양전하와 양전하, 또는 음전하와 음전하) 사이에는 서로 밀어내는 힘인 척력이 작용합니다."
-            },
-            {
-                id: 9, type: 'fill-in', text: "9. 전기력은 전하의 종류가 다르면 (   )이 작용한다.", 
-                answer: "인력", options: ["척력", "반발력", "구심력", "인력"],
-                explanation: "다른 종류의 전하(양전하와 음전하) 사이에는 서로 끌어당기는 힘인 인력이 작용합니다."
-            },
-            {
-                id: 10, type: 'fill-in', text: "10. 전자와 원자핵 사이에는 전기력 뿐만 아니라 (   )도 작용한다.", 
-                answer: "중력", options: ["자기력", "강한 핵력", "약한 핵력", "중력"],
-                explanation: "전자와 원자핵은 각각 질량을 가지고 있으므로 만유인력(중력)도 작용합니다. 하지만 원자 규모에서 중력은 전기력에 비해 그 크기가 매우 작아 거의 무시할 수 있습니다."
-            },
-            {
-                id: 11, type: 'fill-in', text: "11. 원자 내의 전자는 (   )에 의해 원자에 속박되어 있다.", 
-                answer: "전기적 인력", options: ["중력", "자기력", "원심력", "전기적 인력"],
-                explanation: "음(-)전하를 띤 전자는 양(+)전하를 띤 원자핵과의 사이에 작용하는 전기적 인력에 의해 원자핵 주위에 속박되어 원자를 이룹니다."
-            },
-            {
-                id: 12, type: 'fill-in', text: "12. 방출 스펙트럼은 (   ) 원자에서 방출되는 파장의 빛에 의해 (   ) 선의 형태로 나타난다.", 
-                answer: "뜨거운;밝은", options: ["차가운;어두운", "들뜬;검은", "뜨거운;밝은", "안정한;연속적인"],
-                explanation: "고온의 기체나 들뜬 상태의 원자는 특정 파장의 빛만을 방출합니다. 이 빛을 분광기로 관찰하면 검은 배경에 특정 위치에만 밝은 선들이 나타나는 방출 스펙트럼(선 스펙트럼)이 관찰됩니다."
-            },
-            {
-                id: 13, type: 'fill-in', text: "13. 흡수 스펙트럼은 백색광이 (   ) 원자를 지날 때 (   ) 선의 형태로 나타난다.", 
-                answer: "차가운;어두운", options: ["뜨거운;밝은", "이온화된;연속적인", "차가운;어두운", "바닥상태;무지개색"],
-                explanation: "백색광과 같이 연속적인 파장의 빛이 저온의 기체 원자를 통과할 때, 기체 원자는 특정 파장의 빛을 흡수합니다. 그 결과 연속 스펙트럼 배경에 흡수된 파장 부분만 검은 선(흡수선)으로 나타나는 흡수 스펙트럼이 관찰됩니다."
-            },
-            {
-                id: 14, type: 'fill-in', text: "14. 빛은 (   )의 성질을 갖고 이를 (   )라고 한다.", 
-                answer: "입자;광자", options: ["파동;전자기파", "입자;광자", "에너지;일", "운동량;충격량"],
-                explanation: "빛은 파동의 성질과 함께 입자의 성질도 동시에 가집니다(빛의 이중성). 빛의 입자성을 나타내는 빛 알갱이를 광자(광양자)라고 하며, 각 광자는 특정 에너지(E=hf)를 가집니다."
-            },
-            {
-                id: 15, type: 'fill-in', text: "15. 원자에서 전자는 (   ) 궤도만이 허용된다.", 
-                answer: "특정한", options: ["모든", "원형의", "특정한", "타원형의"],
-                explanation: "보어의 원자 모형에 따르면, 원자 내의 전자는 아무 궤도에서나 운동할 수 있는 것이 아니라, 양자화된 특정한 에너지 준위에 해당하는 불연속적인 궤도에서만 안정하게 존재할 수 있습니다."
-            },
-            {
-                id: 16, type: 'fill-in', text: "16. 전자가 궤도를 옮기는 것을 전자의 (   )라고 한다.", 
-                answer: "전이", options: ["방출", "흡수", "여기", "전이"],
-                explanation: "전자가 한 에너지 준위(궤도)에서 다른 에너지 준위(궤도)로 이동하는 현상을 전자의 전이(transition)라고 합니다."
-            },
-            {
-                id: 17, type: 'fill-in', text: "17. 전자가 바깥쪽 궤도로 전이하면 광자를 (   )한다.", 
-                answer: "흡수", options: ["방출", "생성", "흡수", "소멸"],
-                explanation: "전자가 에너지가 낮은 안쪽 궤도에서 에너지가 높은 바깥쪽 궤도로 전이하려면, 두 궤도의 에너지 차이만큼에 해당하는 에너지를 가진 광자를 흡수해야 합니다."
-            },
-            {
-                id: 18, type: 'fill-in', text: "18. 전자가 안쪽 궤도로 전이하면 광자를 (   )한다.", 
-                answer: "방출", options: ["흡수", "반사", "산란", "방출"],
-                explanation: "전자가 에너지가 높은 바깥쪽 궤도에서 에너지가 낮은 안쪽 궤도로 전이하면, 두 궤도의 에너지 차이만큼에 해당하는 에너지를 가진 광자를 방출합니다."
-            },
-            {
-                id: 19, type: 'fill-in', text: "19. 전자가 낮은 에너지 준위의 궤도로 전이할 때 광자의 (   )에 의해 (   )이 나타난다.", 
-                answer: "방출;선스펙트럼", options: ["흡수;흡수스펙트럼", "방출;선스펙트럼", "충돌;연속스펙트럼", "소멸;암흑선"],
-                explanation: "원자 내의 전자가 높은 에너지 준위에서 낮은 에너지 준위로 전이할 때, 그 에너지 차이에 해당하는 특정 파장(에너지)의 광자를 방출합니다. 이 방출된 빛들을 분광기로 보면 특정 위치에만 밝은 선이 나타나는 선 스펙트럼(방출 스펙트럼)이 관찰됩니다."
-            },
-            {
-                id: 20, type: 'fill-in', text: "20. 원자에 속박된 전자가 가질 수 있는 에너지를 그 원자의 (   )라고 한다.", 
-                answer: "에너지 준위", options: ["운동 에너지", "위치 에너지", "에너지 준위", "결합 에너지"],
-                explanation: "에너지 준위는 원자 내에 속박된 전자가 가질 수 있는 특정한 불연속적인 에너지 값들을 의미합니다."
-            },
-            {
-                id: 21, type: 'fill-in', text: "21. 에너지 준위는 (   )으로 나타난다.", 
-                answer: "불연속적", options: ["연속적", "일정하게", "무작위로", "불연속적"],
-                explanation: "원자 내 전자의 에너지 준위는 양자화되어 있어 연속적인 값을 갖지 못하고, 특정한 값들만 가질 수 있는 불연속적인 특징을 보입니다."
-            },
-            {
-                id: 22, type: 'fill-in', text: "22. 수소 원자에서 전자가 n=1인 궤도로 전이하면 (   ) 영역의 빛을 방출한다.", 
-                answer: "자외선", options: ["가시광선", "적외선", "자외선", "마이크로파"],
-                explanation: "수소 원자에서 전자가 n=2 이상의 높은 에너지 준위에서 n=1인 바닥상태로 전이할 때 방출되는 빛은 에너지가 커서 자외선 영역에 해당하며, 이를 라이먼 계열이라고 합니다. (PDF의 '자외석'은 '자외선'의 오타로 보입니다.)"
-            },
-            {
-                id: 23, type: 'fill-in', text: "23. 수소 원자에서 전자가 n=2인 궤도로 전이하면 (   ) 영역을 포함한 빛을 방출한다.", 
-                answer: "가시광선", options: ["자외선", "적외선", "엑스선", "가시광선"],
-                explanation: "수소 원자에서 전자가 n=3 이상의 높은 에너지 준위에서 n=2인 궤도로 전이할 때 방출되는 빛은 주로 가시광선 영역에 해당하며, 이를 발머 계열이라고 합니다."
-            },
-            {
-                id: 24, type: 'fill-in', text: "24. 수소 원자에서 전자가 n=3인 궤도로 전이하면 (   ) 영역의 빛을 방출한다.", 
-                answer: "적외선", options: ["가시광선", "자외선", "감마선", "적외선"],
-                explanation: "수소 원자에서 전자가 n=4 이상의 높은 에너지 준위에서 n=3인 궤도로 전이할 때 방출되는 빛은 에너지가 비교적 작아 적외선 영역에 해당하며, 이를 파셴 계열이라고 합니다."
-            },
-            {
-                id: 25, type: 'ox', text: "25. 원자가 가까이 있으면 에너지 준위가 갈라진다.", 
-                answer: "O", options: ["X", "O"],
-                explanation: "고체와 같이 원자들이 매우 가깝게 모여 있으면, 이웃한 원자들의 영향을 받아 개별 원자의 뚜렷했던 에너지 준위들이 약간씩 갈라지거나 폭을 가지게 됩니다."
-            },
-            {
-                id: 26, type: 'fill-in', text: "26. 에너지 준위들이 아주 촘촘하게 모여 (   )인 띠의 형태를 이루는 것을 (   )라고 한다.", 
-                answer: "연속적;에너지띠", options: ["불연속적;에너지갭", "연속적;에너지띠", "양자화된;오비탈", "겹쳐진;전도띠"],
-                explanation: "고체 내에서 수많은 원자들의 에너지 준위들이 서로 영향을 주고받아 매우 촘촘하게 모여 거의 연속적인 것처럼 보이는 에너지 영역을 형성하는데, 이를 에너지띠(energy band)라고 합니다."
-            },
-            {
-                id: 27, type: 'fill-in', text: "27. 1개의 원자에는 (   )적인 여러 개의 에너지 준위가 있다.", 
-                answer: "불연속", options: ["연속", "단일", "무한", "불연속"],
-                explanation: "단일 원자 내에서 전자가 가질 수 있는 에너지는 양자화되어 있어 불연속적인 특정 값, 즉 여러 개의 뚜렷한 에너지 준위로 존재합니다."
-            },
-            {
-                id: 28, type: 'fill-in', text: "28. 에너지 띠 사이의 간격을 (   )이라고 한다.", 
-                answer: "띠간격", options: ["허용된 띠", "금지된 띠", "전도띠", "띠간격"],
-                explanation: "에너지띠 이론에서 전자가 존재할 수 없는 에너지 영역, 즉 허용된 에너지띠와 에너지띠 사이의 간격을 띠틈 또는 띠간격(band gap, energy gap)이라고 합니다."
-            },
-            {
-                id: 29, type: 'fill-in', text: "29. 띠간격에 해당되는 에너지 준위를 가질 수 (   ).", 
-                answer: "없다", options: ["있다", "항상 가진다", "가끔 가진다", "없다"],
-                explanation: "띠간격(band gap)은 전자가 존재할 수 없는 금지된 에너지 영역입니다. 전자는 허용된 에너지띠 내의 에너지 준위만 가질 수 있습니다."
-            },
-            {
-                id: 30, type: 'fill-in', text: "30. 고체 결정은 0K(절대영도)일 때 전자는 (   ) 에너지 상태가 된다.", 
-                answer: "최저", options: ["최고", "들뜬", "자유", "최저"],
-                explanation: "절대영도(0K)에서 고체 결정 내의 전자들은 가능한 가장 낮은 에너지 상태부터 차례대로 채워져 바닥상태(최저 에너지 상태)를 이룹니다. (PDF의 'OK'는 '0K'의 오타로 보입니다.)"
-            },
-            {
-                id: 31, type: 'fill-in', text: "31. 1개의 (양자) 상태에 전자가 가질 수 있는 에너지 준위는 (   )개이다.", 
-                answer: "1", options: ["2", "무한", "0", "1"], 
-                explanation: "파울리 배타 원리에 따르면, 한 원자 내에서 두 개 이상의 전자가 동일한 양자 상태(모든 양자수가 같은 상태)를 가질 수 없습니다. 각 전자는 고유한 양자 상태에 있으며, 각 양자 상태는 특정 에너지 준위에 해당합니다. 따라서 '1개의 에너지 준위' 또는 '1개의 양자 상태'에는 전자가 특정 규칙에 따라 채워집니다."
-            },
-            {
-                id: 32, type: 'fill-in', text: "32. 전자는 한 (에너지) 상태에 최대 (   )개만 들어갈 수 있다.", 
-                answer: "2", options: ["1", "8", "무한", "2"], 
-                explanation: "파울리 배타 원리에 따르면, 하나의 오비탈(공간적 상태)에는 스핀 방향이 반대인 전자가 최대 2개까지 들어갈 수 있습니다. 각 오비탈은 특정 에너지 준위와 관련됩니다. (PDF의 '틀어갈'은 '들어갈'의 오타로 보입니다.)"
-            },
-            {
-                id: 33, type: 'fill-in', text: "33. 가장 (   ) 에너지 준위부터 2개씩 채워진다.", 
-                answer: "낮은", options: ["높은", "중간", "바깥쪽", "낮은"],
-                explanation: "전자들은 에너지적으로 가장 안정한 상태를 선호하므로, 다전자 원자나 고체에서 전자들은 가장 낮은 에너지 준위부터 차례대로 채워집니다 (쌓음 원리). 각 에너지 준위(또는 오비탈)에는 파울리 배타 원리에 따라 최대 2개의 전자가 들어갑니다."
-            },
-            {
-                id: 34, type: 'fill-in', text: "34. (   )은 어떤 에너지띠를 전자가 완전히 채운 상태와, 못 채운 상태로 나눌 수 있다.", 
-                answer: "고체 결정", options: ["단일 원자", "기체 분자", "고체 결정", "플라스마"],
-                explanation: "고체 결정의 에너지띠 이론에서, 전자들이 에너지띠를 채우는 방식에 따라 물질의 전기적 특성이 결정됩니다. 전자가 완전히 채워진 원자가띠와 부분적으로 채워졌거나 비어 있는 전도띠 등으로 구분됩니다. (PDF의 '상탸로'는 '상태로'의 오타로 보입니다.)"
-            },
-            {
-                id: 35, type: 'fill-in', text: "35. (   )에서는 전자가 쉽게 이동할 수 있다.", 
-                answer: "도체", options: ["절연체", "반도체", "부도체", "도체"],
-                explanation: "도체는 원자가띠와 전도띠가 겹쳐 있거나 전도띠에 자유 전자가 많아, 외부 전기장에 의해 전자가 쉽게 이동하여 전류가 잘 흐릅니다."
-            },
-            {
-                id: 36, type: 'fill-in', text: "36. (   )에서는 전자가 쉽게 이동할 수 없다.", 
-                answer: "절연체", options: ["도체", "금속", "초전도체", "절연체"],
-                explanation: "절연체는 원자가띠가 전자로 완전히 채워져 있고 전도띠와의 띠간격이 매우 커서, 상온에서 전자가 전도띠로 쉽게 올라가지 못해 전류가 거의 흐르지 않습니다."
-            },
-            {
-                id: 37, type: 'fill-in', text: "37. 절연체에서 전자가 완전히 채워진 에너지띠 중 맨 위의 띠를 (   )라고 한다.", 
-                answer: "원자가띠", options: ["전도띠", "금지띠", "원자가띠", "허용띠"],
-                explanation: "원자가띠(valence band)는 절대영도에서 전자로 채워진 가장 높은 에너지띠이거나, 상온에서 원자가 전자가 주로 존재하는 에너지띠를 말합니다. 절연체나 반도체에서는 이 띠가 전자로 거의 또는 완전히 채워져 있습니다."
-            },
-            {
-                id: 38, type: 'fill-in', text: "38. 원자가띠 바로 위의 에너지띠를 (   )라고 한다.", 
-                answer: "전도띠", options: ["원자가띠", "띠간격", "페르미 준위", "전도띠"],
-                explanation: "전도띠(conduction band)는 원자가띠 바로 위에 있는 에너지띠로, 이 띠에 있는 전자는 비교적 자유롭게 이동하여 전류를 흐르게 할 수 있습니다. 절연체나 반도체에서는 원자가띠와 전도띠 사이에 띠간격이 존재합니다."
-            },
-            {
-                id: 39, type: 'fill-in', text: "39. 전자가 빠져나간 에너지띠에는 (   )이 생기고, (   )전하를 띤다.", 
-                answer: "양공;+", options: ["음공;-", "중성자;0", "광자;0", "양공;+"],
-                explanation: "원자가띠에서 전자가 에너지를 얻어 전도띠로 올라가면, 원래 전자가 있던 자리에는 전자가 비어 있는 빈자리, 즉 양공(정공, hole)이 생깁니다. 양공은 마치 양(+)전하를 가진 입자처럼 행동합니다."
-            },
-            {
-                id: 40, type: 'fill-in', text: "40. 상온일 때 절연체도 어느 정도 (   )을 가진다.", 
-                answer: "전기 전도성", options: ["자기성", "탄성", "광학적 특성", "전기 전도성"],
-                explanation: "절연체는 띠간격이 매우 크지만, 상온에서는 극히 일부의 전자가 열에너지를 얻어 전도띠로 올라갈 수 있어 아주 미미한 수준의 전기 전도성을 가질 수 있습니다. (거의 무시할 수준)"
-            },
-            {
-                id: 41, type: 'fill-in', text: "41. 띠간격이 좁으면 (   )라고 한다.", 
-                answer: "반도체", options: ["도체", "절연체", "초전도체", "반도체"],
-                explanation: "반도체는 절연체보다 띠간격이 좁아서, 상온에서 일부 전자가 원자가띠에서 전도띠로 쉽게 올라가거나 불순물 도핑을 통해 전도성을 조절할 수 있는 물질입니다."
-            },
-            {
-                id: 42, type: 'fill-in', text: "42. 띠 간격이 넓으면 (   )라고 한다.", 
-                answer: "절연체", options: ["도체", "반도체", "금속", "절연체"],
-                explanation: "절연체는 원자가띠와 전도띠 사이의 띠간격이 매우 넓어서, 상온에서 전자가 이 간격을 뛰어넘어 전도띠로 이동하기가 매우 어려워 전기 전도성이 매우 낮습니다."
-            },
-            {
-                id: 43, type: 'fill-in', text: "43. 음식물의 염분 농도를 측정할 때 (   )를 측정하는 방법을 이용한다.", 
-                answer: "전기 전도도", options: ["pH", "밀도", "온도", "전기 전도도"],
-                explanation: "음식물에 녹아 있는 염분(주로 NaCl)은 물에 녹아 이온(Na<sup>+</sup>, Cl<sup>-</sup>) 상태로 존재하며, 이 이온들이 전류를 운반할 수 있습니다. 따라서 용액의 전기 전도도를 측정하면 염분의 농도를 간접적으로 알 수 있습니다."
-            },
-            {
-                id: 44, type: 'fill-in', text: "44. 반도체 물질이 불순물 없이 완벽한 결정 구조를 갖는 것을 (   )라고 한다.", 
-                answer: "고유 반도체", options: ["비고유 반도체", "p형 반도체", "고유 반도체", "n형 반도체"],
-                explanation: "고유 반도체(진성 반도체, intrinsic semiconductor)는 불순물이 거의 포함되지 않은 순수한 상태의 반도체 물질을 말합니다 (예: 순수한 규소 결정)."
-            },
-            {
-                id: 45, type: 'fill-in', text: "45. 고유 반도체는 원자가 전자 (   )쌍이 (   )결합한다.", 
-                answer: "4;공유", options: ["1;이온", "2;금속", "4;공유", "3;수소"], 
-                explanation: "대표적인 고유 반도체인 규소(Si)나 저마늄(Ge)은 4족 원소로, 각 원자가 4개의 원자가 전자를 가지고 이웃한 4개의 원자와 각각 1개씩의 전자를 공유하여 총 4쌍의 공유 결합을 형성하며 안정된 다이아몬드 구조를 이룹니다."
-            },
-            {
-                id: 46, type: 'fill-in', text: "46. 불순물을 넣은 반도체는 (   )라고 한다.", 
-                answer: "비고유 반도체", options: ["고유 반도체", "절연체", "도체", "비고유 반도체"],
-                explanation: "비고유 반도체(외인성 반도체, extrinsic semiconductor)는 순수한 고유 반도체에 의도적으로 특정 불순물을 첨가(도핑)하여 전기적 특성을 변화시킨 반도체를 말합니다. p형 반도체와 n형 반도체가 여기에 해당합니다."
-            },
-            {
-                id: 47, type: 'fill-in', text: "47. 불순물을 섞는 과정을 (   )이라고 한다.", 
-                answer: "도핑", options: ["코팅", "에칭", "합금", "도핑"],
-                explanation: "도핑(doping)은 반도체의 전기 전도도를 조절하기 위해 순수한 반도체 결정에 미량의 특정 원소(불순물)를 첨가하는 공정을 말합니다."
-            },
-            {
-                id: 48, type: 'fill-in', text: "48. (   ) 이론에 따르면 도핑은 띠 간격 사이에 새로운 준위를 삽입하는 것과 같다.", 
-                answer: "에너지띠", options: ["양자역학", "상대성", "에너지띠", "분자궤도"],
-                explanation: "에너지띠 이론에서 불순물 도핑은 반도체의 금지된 띠(띠간격) 내에 새로운 국소적인 에너지 준위(도너 준위 또는 억셉터 준위)를 형성하는 것으로 설명됩니다. 이 새로운 준위는 전하 운반자의 생성을 용이하게 합니다."
-            },
-            {
-                id: 49, type: 'fill-in', text: "49. 순수 반도체에 13족 원소를 도핑하면 (   )이 많아지고 이를 (   )라고 한다.", 
-                answer: "양공;p형 반도체", options: ["전자;n형 반도체", "양공;p형 반도체", "이온;이온성 반도체", "광자;광반도체"],
-                explanation: "순수 반도체(예: 4족 규소)에 13족 원소(원자가 전자 3개, 예: 붕소)를 도핑하면, 공유 결합 시 전자가 하나 부족한 상태인 양공(정공)이 주된 전하 운반자가 되며, 이러한 반도체를 p형 반도체라고 합니다."
-            },
-            {
-                id: 50, type: 'fill-in', text: "50. (양공)은 전하를 운반하는 역할을 한다.", 
-                answer: "양공", options: ["중성자", "광자", "포논", "양공"], 
-                explanation: "반도체 내에서 전류를 흐르게 하는 입자를 전하 운반자라고 하며, 여기에는 자유 전자와 양공(정공)이 있습니다. 양공은 전자가 비어있는 자리로, 마치 양전하를 가진 입자처럼 행동하며 전류에 기여합니다."
-            },
-            {
-                id: 51, type: 'fill-in', text: "51. 순수한 반도체에 15족 원소를 도핑하면 (   )가 많아지는데 이를 (   ) 라고 한다.", 
-                answer: "전도 전자;n형 반도체", options: ["양공;p형 반도체", "전도 전자;n형 반도체", "원자핵;핵반도체", "이온;플라스마"],
-                explanation: "순수 반도체(예: 4족 규소)에 15족 원소(원자가 전자 5개, 예: 인)를 도핑하면, 4개의 전자는 공유 결합에 참여하고 남은 1개의 전자가 비교적 쉽게 자유 전자가 되어 전도에 기여합니다. 이렇게 자유 전자가 주된 전하 운반자인 반도체를 n형 반도체라고 합니다."
-            },
-            {
-                id: 52, type: 'fill-in', text: "52. 다이오드는 (   ) 반도체에서 (   ) 반도체 방향으로만 전류가 흐른다.", 
-                answer: "p형;n형", options: ["n형;p형", "고유;비고유", "p형;n형", "금속;절연체"],
-                explanation: "일반적인 p-n 접합 다이오드는 p형 반도체에서 n형 반도체 방향으로 전류가 흐르는 것을 허용하고(순방향), 반대 방향(n형에서 p형)으로는 거의 흐르지 못하게 하는 정류 특성을 가집니다. (전류의 방향은 양전하의 이동 방향 기준)"
-            },
-            {
-                id: 53, type: 'fill-in', text: "53. 다이오드의 (   ) 반도체에는 (+)극을, (   ) 반도체에는 (-)극을 연결하는 것을 순방향 바이어스라고 한다.", 
-                answer: "p형;n형", options: ["n형;p형", "양쪽 모두;접지", "가운데;양쪽", "p형;n형"],
-                explanation: "p-n 접합 다이오드에서 p형 반도체 쪽에 전원의 양극(+)을 연결하고, n형 반도체 쪽에 음극(-)을 연결하는 것을 순방향 바이어스라고 하며, 이 상태에서 다이오드에 전류가 잘 흐릅니다."
-            },
-            {
-                id: 54, type: 'fill-in', text: "54. 교류를 직류로 바꾸는 과정을 (   )라고 한다.", 
-                answer: "정류", options: ["증폭", "발진", "변조", "정류"],
-                explanation: "정류(rectification)는 다이오드와 같은 소자를 이용하여 시간에 따라 방향이 주기적으로 바뀌는 교류(AC)를 한쪽 방향으로만 흐르는 직류(DC)로 변환하는 과정을 말합니다."
-            },
-            {
-                id: 55, type: 'fill-in', text: "55. 직선 도선에 흐르는 전류에 의한 자기장의 방향은 오른손 (   )을 감아쥐는 방향이다.", 
-                answer: "네 손가락", options: ["엄지손가락", "손바닥", "손등", "네 손가락"],
-                explanation: "직선 도선에 전류가 흐를 때 주변에 생기는 자기장의 방향은 오른나사 법칙(앙페르의 오른손 법칙)으로 결정됩니다. 오른손 엄지손가락을 전류의 방향으로 향하게 할 때, 나머지 네 손가락을 감아쥐는 방향이 자기장의 방향(자기력선 방향)이 됩니다."
-            },
-            {
-                id: 56, type: 'fill-in', text: "56. 전류의 방향이 바뀌면 (   )의 모양은 그대로 유지가 되지만 (   )의 방향은 반대가 된다.", 
-                answer: "자기력선;자기장", options: ["전기장;전기력선", "등전위면;전위", "자기력선;자기장", "자기장;자기력선"],
-                explanation: "도선에 흐르는 전류의 방향이 반대가 되면, 자기력선의 전체적인 모양(동심원 형태 등)은 유지되지만 자기장의 방향(자기력선의 화살표 방향)은 정반대가 됩니다."
-            },
-            {
-                id: 57, type: 'fill-in', text: "57. 도선에 흐르는 전류의 세기가 셀수록 나침반 자침의 (   ) 정도가 커진다.", 
-                answer: "회전", options: ["진동", "색 변화", "길이 변화", "회전"],
-                explanation: "도선 주위에 놓인 나침반의 자침은 전류에 의한 자기장의 영향을 받아 회전합니다. 전류의 세기가 셀수록 자기장의 세기도 강해지므로 나침반 자침이 더 많이 회전(편향)합니다."
-            },
-            {
-                id: 58, type: 'fill-in', text: "58. 직선 전류에 의한 자기장의 세기는 (   )에 비례하고, 도선으로부터의 (   )에 반비례하기 때문이다.", 
-                answer: "전류의 세기;거리", options: ["전압;저항", "도선의 길이;단면적", "전류의 세기;거리", "전하량;시간"],
-                explanation: "무한히 긴 직선 도선에 흐르는 전류 I에 의해 도선으로부터 수직 거리 r만큼 떨어진 지점에 생기는 자기장의 세기 B는 $B = k \\cdot \\frac{I}{r}$ (k는 비례상수)로 주어집니다. 즉, 전류의 세기에 비례하고 거리에 반비례합니다."
-            },
-            {
-                id: 59, type: 'fill-in', text: "59. 58번 내용의 법칙을 (   ) 법칙이라고 한다.", 
-                answer: "앙페르", options: ["쿨롱", "패러데이", "렌츠", "앙페르"], 
-                explanation: "전류와 그 주위에 형성되는 자기장의 관계를 설명하는 기본 법칙 중 하나로 앙페르 법칙이 있습니다. 직선 도선 주위의 자기장 세기를 구체적으로 나타내는 식은 비오-사바르 법칙으로부터 유도될 수도 있습니다. 여기서는 포괄적으로 앙페르 법칙으로 답할 수 있습니다."
-            },
-            {
-                id: 60, type: 'fill-in', text: "60. 솔레노이드 내부에서 자기장의 세기는 (   )에 비례하며 (   )에 비례한다.", 
-                answer: "전류의 세기;단위 길이당 코일 감은 수", 
-                options: ["전압;코일의 굵기", "전류의 세기;단위 길이당 코일 감은 수", "코일의 길이;코일의 반지름", "저항;온도"],
-                explanation: "이상적인 솔레노이드(원통형 코일) 내부의 자기장의 세기는 솔레노이드에 흐르는 전류의 세기에 비례하고, 단위 길이당 코일을 감은 횟수(밀도)에 비례합니다. ($B = \\mu_0 n I$, 여기서 n은 단위 길이당 감은 수)"
-            },
-            {
-                id: 61, type: 'fill-in', text: "61. 전류에 의한 자기 작용을 이용하는 예시 3가지를 쓰시오. (   ), (   ), (   )", 
-                answer: "자동차 연료통;스피커;MRI", 
-                options: ["전구;히터;다리미", "자동차 연료통;스피커;MRI", "건전지;태양전지;발전기", "마이크;온도계;습도계"], 
-                explanation: "전류가 흐를 때 발생하는 자기장을 이용하는 예로는 전자석을 사용하는 스피커, 강한 자기장을 이용하는 자기공명영상장치(MRI), 자동차 연료 게이지(플로트와 가변저항, 또는 자기 센서 이용) 등이 있습니다."
-            },
-            {
-                id: 62, type: 'fill-in', text: "62. 물질이 자석에 반응하는 성질을 (   )이라고 한다.", 
-                answer: "자성", options: ["전도성", "탄성", "유전성", "자성"],
-                explanation: "자성은 물질이 자기장 속에서 자석에 끌리거나 밀려나는 등 자기적인 힘을 받거나 스스로 자석이 되는 성질을 통틀어 이르는 말입니다."
-            },
-            // 63번 문제가 PDF에 없음.
-            {
-                id: 64, type: 'fill-in', text: "64. 자성을 띠는 물질을 (   )라고 한다.", 
-                answer: "자성체", options: ["유전체", "도체", "반도체", "자성체"],
-                explanation: "자성체는 자성을 나타내는 물질을 말하며, 외부 자기장의 영향으로 자기화되거나 스스로 영구 자석의 성질을 가질 수 있습니다. 강자성체, 상자성체, 반자성체 등이 있습니다."
-            },
-            {
-                id: 65, type: 'fill-in', text: "65. 원자는 하나하나가 매우 작은 (   )과 같은 역할을 한다.", 
-                answer: "자석", options: ["전하", "코일", "전지", "자석"],
-                explanation: "원자 내에서 전자의 궤도 운동과 스핀 운동은 미세한 전류 고리와 유사하여, 각 원자가 매우 작은 자석(원자 자석 또는 자기 쌍극자)처럼 행동하게 만듭니다."
-            },
-            {
-                id: 66, type: 'fill-in', text: "66. 원자 자석은 외부 자기장에 의해 일정한 방향으로 정렬되는데 이러한 현상을 (   )라고 한다.", 
-                answer: "자기화", options: ["자화", "유도", "편극", "자기화"], 
-                explanation: "자기화(magnetization)는 물질 내의 원자 자석(자기 쌍극자)들이 외부 자기장의 영향으로 특정 방향으로 정렬되거나, 정렬된 정도가 변하여 물질 전체가 자성을 띠게 되는 현상을 말합니다."
-            },
-            {
-                id: 67, type: 'fill-in', text: "67. 강자성체는 외부 자기장을 가하면 물질 속의 자기 구역이 넓어지면서 외부 자기장과 (   ) 방향으로 정렬되어 강하게 자기화 되며, 외부 자기장을 제거해도 자기화가 (   )된다.", 
-                answer: "같은;유지", options: ["반대;사라짐", "같은;유지", "수직;약해짐", "무관하게;변하지 않음"],
-                explanation: "강자성체(예: 철, 니켈, 코발트)는 외부 자기장을 가하면 내부의 자기 구역들이 외부 자기장과 같은 방향으로 정렬되면서 매우 강하게 자기화됩니다. 그리고 외부 자기장을 제거해도 그 자기화된 상태가 상당 부분 유지되는 특징(자기이력현상)을 가집니다."
-            },
-            {
-                id: 68, type: 'fill-in', text: "68. (   )는 외부 자기장을 가하기 전에는 자성이 나타나지 않는다.", 
-                answer: "상자성체", options: ["강자성체", "영구자석", "전자석", "상자성체"],
-                explanation: "상자성체(예: 알루미늄, 백금, 산소)는 외부 자기장이 없을 때는 원자 자석들이 무질서하게 배열되어 있어 전체적으로 자성을 나타내지 않습니다. 외부 자기장을 가하면 외부 자기장과 같은 방향으로 약하게 자기화됩니다."
-            },
-            {
-                id: 69, type: 'fill-in', text: "69. 반자성체는 외부 자기장을 가하기 전에는 자기장이 (   )이 되어 자성이 없는 상태이다.", 
-                answer: "0", options: ["매우 강함", "약함", "일정함", "0"],
-                explanation: "반자성체(예: 물, 구리, 유리, 플라스틱)는 외부 자기장이 없을 때 원자 자석들의 자기 모멘트가 서로 상쇄되어 전체적인 자기장이 0이므로 자성을 나타내지 않습니다."
-            },
-            {
-                id: 70, type: 'fill-in', text: "70. 반자성체는 외부 자기장을 가했을 때 외부 자기장과 (   ) 방향으로 자기화된다.", 
-                answer: "반대", options: ["같은", "수직", "무관한", "반대"],
-                explanation: "반자성체는 외부 자기장을 가하면 외부 자기장과 반대 방향으로 매우 약하게 자기화되는 특징을 가집니다. 이로 인해 자석에 대해 약한 반발력을 나타냅니다."
-            },
-            {
-                id: 71, type: 'fill-in', text: "71. 반자성체는 외부 자기장을 제거하면 (   )와 같이 자기화가 된 상태가 바로 사라진다.", 
-                answer: "상자성체", options: ["강자성체", "초전도체", "페라이트", "상자성체"],
-                explanation: "반자성체와 상자성체는 외부 자기장을 제거하면 자기화되었던 상태가 즉시 사라져 원래의 비자성 상태로 돌아갑니다. 강자성체만이 자기화 상태를 유지합니다."
-            },
-            {
-                id: 72, type: 'fill-in', text: "72. 종이, 알루미늄 등은 (   )에 해당된다.", 
-                answer: "상자성체", options: ["강자성체", "반자성체", "절연체", "상자성체"],
-                explanation: "알루미늄, 백금, 마그네슘, 산소, 공기 등은 상자성체에 해당합니다. 종이는 주로 셀룰로스로 이루어져 반자성 특성을 보이지만, 미량의 상자성 불순물을 포함할 수 있습니다. 문제의 의도는 알루미늄을 대표적인 예로 든 것으로 보입니다."
-            },
-            {
-                id: 73, type: 'fill-in', text: "73. 플라스틱, 구리, 유리 등은 (   )에 해당된다.", 
-                answer: "반자성체", options: ["강자성체", "상자성체", "도체", "반자성체"],
-                explanation: "플라스틱, 구리, 유리, 물, 금, 은, 수소, 질소 등 대부분의 유기물과 일부 금속은 반자성체에 해당합니다."
-            },
-            {
-                id: 74, type: 'fill-in', text: "74. 도서관 책을 대출할 때에는 감응 제거 장치를 이용하여 책에 붙어있는 (   ) 감응 테이프의 원자 자석을 일정한 방향으로 정렬시킨다.", 
-                answer: "강자성체", options: ["상자성체", "반자성체", "자성유체", "강자성체"],
-                explanation: "도서관의 도난 방지 시스템에 사용되는 감응 테이프(자기 테이프)는 강자성체 물질로 만들어져 있어, 특정 장치를 통해 자기화시키거나(활성화) 자기 배열을 흐트러뜨려(비활성화) 대출 여부를 관리합니다."
-            },
-            {
-                id: 75, type: 'fill-in', text: "75. 코일을 통과하는 자기선속이 시간에 따라 변하면서 코일에 전류가 흐르는 현상을 (   )라고 한다. 이때 흐르는 전류를 (   )라고 한다.", 
-                answer: "전자기 유도;유도 전류", options: ["정전기 유도;변위 전류", "전자기 유도;유도 전류", "광전 효과;광전류", "열전 효과;열전류"],
-                explanation: "전자기 유도는 폐쇄된 코일(회로)을 통과하는 자기장의 세기나 면적, 방향 등이 변하여 자기 선속이 시간에 따라 변할 때, 코일에 기전력(전압)이 유도되어 전류가 흐르는 현상입니다. 이때 흐르는 전류를 유도 전류라고 합니다."
-            },
-            {
-                id: 76, type: 'fill-in', text: "76. 자석을 솔레노이드에 (   ) 접근시킬수록, 코일의 감은 수가 (   ) 유도전류의 세기가 커지는 것을 (   )이라고 한다.", 
-                answer: "빠르게;많을수록;패러데이 전자기 유도 법칙", 
-                options: ["느리게;적을수록;렌츠 법칙", "일정하게;굵을수록;옴의 법칙", "빠르게;많을수록;패러데이 전자기 유도 법칙", "회전하며;가늘수록;앙페르 법칙"],
-                explanation: "패러데이의 전자기 유도 법칙에 따르면, 코일에 유도되는 기전력(및 유도 전류)의 크기는 코일을 통과하는 자기 선속의 시간적 변화율에 비례하고 코일의 감은 수에 비례합니다. 따라서 자석을 빠르게 움직이거나 코일의 감은 수가 많을수록 유도 전류의 세기가 커집니다."
-            },
-            {
-                id: 77, type: 'fill-in', text: "77. (유도 기전력)은 유도전류를 발생시키는데, 유도전류는 (   )를 반대하는 방향으로 흐르는 것은 렌츠법칙이라고 한다.", 
-                answer: "자기선속의 변화", options: ["저항;전압 강하", "전기장;전하의 이동", "자기선속의 변화", "자기장;전류의 흐름"],
-                explanation: "렌츠 법칙은 전자기 유도 현상에서 유도 전류의 방향을 결정하는 법칙입니다. 유도 전류는 코일을 통과하는 자기 선속의 변화를 방해하려는 방향으로 흐릅니다. 이 유도 전류를 흐르게 하는 원인이 되는 전압을 유도 기전력이라고 합니다."
-            },
-            {
-                id: 78, type: 'fill-in', text: "78. 발전기는 도선 고리가 회전하면 자기장에 (   )인 도선의 (넓이)가 변하면서 (   )이 변하여 유도 기전력이 발생한다.", 
-                answer: "수직;자기선속", // PDF에 넓이와 자기선속이 모두 답으로 되어있으나, 자기선속이 더 포괄적.
-                options: ["평행;전류", "수직;자기선속", "수직;자기장", "평행;전압"],
-                explanation: "발전기에서 코일(도선 고리)이 균일한 자기장 속에서 회전하면, 코일 면을 수직으로 통과하는 자기력선의 수, 즉 자기 선속($\\Phi = BA\\cos{\\theta}$)이 시간에 따라 주기적으로 변합니다. 이 자기 선속의 변화로 인해 코일에 유도 기전력이 발생하여 교류 전류가 생성됩니다."
-            },
-            {
-                id: 79, type: 'fill-in', text: "79. 화력 발전소의 발전기는 고압의 증기가 터빈을 회전시켜 (   ) 전류를 유도한다.", 
-                answer: "교류", options: ["직류", "맥류", "펄스", "교류"],
-                explanation: "대부분의 발전소(화력, 수력, 원자력 등)에서 사용되는 발전기는 코일이 자기장 속에서 회전하거나 자석이 코일 근처에서 회전하는 방식으로 전자기 유도를 이용합니다. 이 과정에서 생성되는 전류는 시간에 따라 크기와 방향이 주기적으로 변하는 교류(AC) 전류입니다."
-            }
-        ];
+        let currentPage = 1;
+        const totalPages = 8; // 총 페이지 수 8로 변경
+        const pageScoredStatus = {};
 
-        // 명언 목록
-        const motivationalQuotes = [
-            "오늘의 노력이 내일의 너를 만든다.", "포기하지 않는 한, 실패는 없다.", "가장 큰 위험은 아무 위험도 감수하지 않는 것이다.",
-            "배움은 의무도, 생존도 아니다. 그것은 우리의 가장 큰 특권이다.", "성공은 최종 목적지가 아니며, 실패는 치명적이지 않다. 중요한 것은 계속 나아가는 용기다.",
-            "작은 성공들이 모여 큰 성공을 이룬다.", "어제보다 나은 오늘, 오늘보다 나은 내일을 만들자.",
-            "가장 큰 영광은 한 번도 실패하지 않음이 아니라 실패할 때마다 다시 일어서는 데에 있다.", "천리길도 한 걸음부터.", "노력은 결코 배신하지 않는다."
-        ];
+        document.querySelectorAll('.options label').forEach(label => {
+            label.addEventListener('click', function() {
+                const questionDiv = this.closest('.question');
+                const questionAlreadyScored = pageScoredStatus[currentPage] || false;
 
-        const quizElement = document.getElementById('quiz');
-        const paginationControlsElement = document.getElementById('pagination-controls');
-        const submitPageButton = document.getElementById('submit-page-btn');
-        const scoreSectionElement = document.getElementById('score-section');
-        const currentPageScoreTextElement = document.getElementById('current-page-score-text');
-        const totalScoreTextElement = document.getElementById('total-score-text');
-        const pageInfoElement = document.getElementById('page-info');
-        const quizMainTitleDisplayElement = document.getElementById('quiz-main-title-in-score');
-        const motivationalQuoteElement = document.getElementById('motivational-quote'); 
-        
-        const welcomePopup = document.getElementById('welcome-popup');
-        const popupPasswordInput = document.getElementById('popup-password');
-        const popupConfirmButton = document.getElementById('popup-confirm');
-        const popupErrorMessage = document.getElementById('popup-error');
-
-        const correctPassword = "0407"; 
-
-        const questionsPerPage = 10; 
-        let currentPage = 0;
-        let pageScores = []; 
-        let pageAttempted = []; 
-
-        function initializeQuizData() {
-            questions.forEach(q => {
-                q.userAnswer = null;
-                q.isCorrect = null;
-                q.attemptedThisSession = false; 
-                if (q.answer && q.answer.includes(';')) {
-                    q.answersArray = q.answer.split(';');
-                } else if (q.answer) {
-                    q.answersArray = [q.answer];
-                } else {
-                    q.answersArray = [];
-                }
-            });
-            const numPages = Math.ceil(questions.length / questionsPerPage);
-            pageAttempted = new Array(numPages).fill(false);
-            pageScores = new Array(numPages).fill(0);
-        }
-
-
-        function renderQuestionsForPage(page) {
-            quizElement.innerHTML = ''; 
-            currentPage = page;
-
-            const start = page * questionsPerPage;
-            const end = Math.min(start + questionsPerPage, questions.length);
-            const questionsOnPage = questions.slice(start, end);
-
-            pageInfoElement.textContent = `총 ${questions.length}문제 중 ${start + 1} - ${end}번 문제`;
-
-
-            questionsOnPage.forEach((q, indexOnPage) => {
-                const questionCard = document.createElement('div');
-                questionCard.classList.add('question-card');
-                questionCard.id = `question-${q.id}`;
-
-                const questionText = document.createElement('p');
-                questionText.classList.add('question-text');
-                let questionHTML = q.text;
-                if (q.answersArray && q.answersArray.length > 1) { 
-                    let blankCount = 0;
-                    questionHTML = q.text.replace(/(\(\s*(?:[^)]*)\s*\))/g, (match) => { // 괄호 안 내용까지 포함하여 매칭
-                        blankCount++;
-                        return `<span class="blank-emphasis">( ${"&nbsp;&nbsp;&nbsp;".repeat(q.answersArray[blankCount-1] ? q.answersArray[blankCount-1].length/2 +1 : 3)} )</span>`;
+                if (!questionAlreadyScored) {
+                    questionDiv.querySelectorAll('.options label').forEach(lbl => {
+                        lbl.classList.remove('selected-by-user');
                     });
-                } else { 
-                     questionHTML = q.text.replace(/(\(\s*(?:[^)]*)\s*\))/g, '<span class="blank-emphasis">( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</span>');
-                }
-                questionText.innerHTML = questionHTML; 
-                questionCard.appendChild(questionText);
-
-                const optionsContainer = document.createElement('div');
-                optionsContainer.classList.add('options');
-
-                q.options.forEach(option => {
-                    const optionId = `q${String(q.id).replace(/[^a-zA-Z0-9]/g, '')}-option-${option.replace(/[^a-zA-Z0-9ㄱ-ㅎㅏ-ㅣ가-힣$]/g, '')}`;
-                    
-                    const radioInput = document.createElement('input');
-                    radioInput.type = 'radio';
-                    radioInput.id = optionId;
-                    radioInput.name = `question-${q.id}`; 
-                    radioInput.value = option; 
-                    radioInput.classList.add('option-input', 'hidden');
-                    if (q.userAnswer === option) radioInput.checked = true; 
-                    if (pageAttempted[currentPage]) radioInput.disabled = true;
-
-                    const optionLabel = document.createElement('label');
-                    optionLabel.htmlFor = optionId;
-                    optionLabel.innerHTML = option.includes(';') ? option.split(';').join(', ') : option; 
-                    optionLabel.classList.add('option-label');
-                    if (pageAttempted[currentPage]) optionLabel.classList.add('opacity-70', 'cursor-not-allowed');
-
-                    optionsContainer.appendChild(radioInput);
-                    optionsContainer.appendChild(optionLabel);
-                });
-                questionCard.appendChild(optionsContainer);
-
-                const feedbackElement = document.createElement('div');
-                feedbackElement.classList.add('feedback');
-                feedbackElement.style.display = 'none'; 
-                questionCard.appendChild(feedbackElement);
-                
-                if (pageAttempted[currentPage] && q.attemptedThisSession) {
-                    showFeedbackForQuestion(q, questionCard);
-                }
-                quizElement.appendChild(questionCard);
-            });
-            
-            const numPages = Math.ceil(questions.length / questionsPerPage);
-            if (numPages > 1) {
-                paginationControlsElement.style.display = 'flex';
-                renderPaginationControls();
-            } else {
-                paginationControlsElement.style.display = 'none';
-            }
-
-
-            submitPageButton.disabled = pageAttempted[currentPage];
-            if (pageAttempted[currentPage]) {
-                submitPageButton.textContent = '채점 완료';
-                scoreSectionElement.style.display = 'block'; 
-                updateScoreDisplay(); 
-                showMotivationalQuote(); 
-            } else {
-                submitPageButton.textContent = '이번 페이지 채점하기'; 
-                motivationalQuoteElement.style.display = 'none'; 
-                if (questionsOnPage.length > 0) { 
-                     scoreSectionElement.style.display = 'none';
-                } else { 
-                     scoreSectionElement.style.display = 'block';
-                     currentPageScoreTextElement.textContent = '이번 페이지에 문제가 없습니다.';
-                     totalScoreTextElement.textContent = '';
-                }
-            }
-        }
-        
-        function showFeedbackForQuestion(question, questionCard) {
-            const feedbackElement = questionCard.querySelector('.feedback');
-            if (!feedbackElement) return;
-
-            feedbackElement.innerHTML = ''; 
-            const correctAnswerText = question.answersArray.join(', ');
-
-            if (question.isCorrect) {
-                feedbackElement.innerHTML = '<strong class="font-semibold">정답입니다!</strong> 🎉';
-                feedbackElement.className = 'feedback correct';
-            } else {
-                feedbackElement.innerHTML = `<strong class="font-semibold">오답입니다.</strong> 정답은 "<span class="font-bold text-red-700">${correctAnswerText}</span>"입니다.`;
-                feedbackElement.className = 'feedback incorrect';
-            }
-
-            const explanationElement = document.createElement('p');
-            explanationElement.classList.add('explanation');
-            explanationElement.innerHTML = `<strong class="font-semibold">해설:</strong> ${question.explanation}`; 
-            feedbackElement.appendChild(explanationElement);
-            feedbackElement.style.display = 'block';
-        }
-
-        function renderPaginationControls() {
-            paginationControlsElement.innerHTML = '';
-            const numPages = Math.ceil(questions.length / questionsPerPage);
-
-            const prevButton = document.createElement('button');
-            prevButton.textContent = '이전';
-            prevButton.disabled = currentPage === 0;
-            prevButton.onclick = () => renderQuestionsForPage(currentPage - 1);
-            paginationControlsElement.appendChild(prevButton);
-
-            for (let i = 0; i < numPages; i++) {
-                const pageButton = document.createElement('button');
-                pageButton.textContent = i + 1;
-                pageButton.classList.add('page-number');
-                if (i === currentPage) {
-                    pageButton.classList.add('current');
-                }
-                pageButton.onclick = () => renderQuestionsForPage(i);
-                paginationControlsElement.appendChild(pageButton);
-            }
-
-            const nextButton = document.createElement('button');
-            nextButton.textContent = '다음';
-            nextButton.disabled = currentPage === numPages - 1;
-            nextButton.onclick = () => renderQuestionsForPage(currentPage + 1);
-            paginationControlsElement.appendChild(nextButton);
-        }
-
-        function showMotivationalQuote() {
-            const randomIndex = Math.floor(Math.random() * motivationalQuotes.length);
-            motivationalQuoteElement.textContent = motivationalQuotes[randomIndex];
-            motivationalQuoteElement.style.display = 'block';
-        }
-
-        submitPageButton.addEventListener('click', () => {
-            if (pageAttempted[currentPage]) return; 
-
-            let scoreForThisPage = 0;
-            
-            const start = currentPage * questionsPerPage;
-            const end = Math.min(start + questionsPerPage, questions.length);
-            const questionsOnPage = questions.slice(start, end);
-
-            questionsOnPage.forEach((q, indexOnPage) => {
-                const questionCard = quizElement.children[indexOnPage]; 
-                const selectedOptionInput = questionCard.querySelector(`input[name="question-${q.id}"]:checked`);
-                
-                q.attemptedThisSession = true;
-
-                if (selectedOptionInput) {
-                    q.userAnswer = selectedOptionInput.value; 
-                    q.isCorrect = (q.userAnswer === q.answer); 
-                                        
-                    if (q.isCorrect) {
-                        scoreForThisPage++; 
-                    }
-                    showFeedbackForQuestion(q, questionCard);
-
-                    const radioInputs = questionCard.querySelectorAll('input[type="radio"]');
-                    radioInputs.forEach(input => input.disabled = true);
-                } else {
-                    const feedbackElement = questionCard.querySelector('.feedback');
-                    feedbackElement.textContent = '답을 선택하지 않았습니다.';
-                    feedbackElement.className = 'feedback incorrect';
-                    feedbackElement.style.display = 'block';
-                    q.isCorrect = false; 
+                    this.classList.add('selected-by-user');
                 }
             });
-            
-            pageScores[currentPage] = scoreForThisPage;
-            pageAttempted[currentPage] = true;
-            submitPageButton.disabled = true;
-            submitPageButton.textContent = '채점 완료';
-            
-            scoreSectionElement.style.display = 'block';
-            updateScoreDisplay();
-            showMotivationalQuote(); 
-
-            const quizContainerElement = document.querySelector('.quiz-container');
-            if (quizContainerElement) {
-                quizContainerElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
         });
 
-        function updateScoreDisplay() {
-            const questionsOnThisPageCount = Math.min(questionsPerPage, questions.length - (currentPage * questionsPerPage)); 
-            currentPageScoreTextElement.textContent = `이번 페이지 점수: ${pageScores[currentPage]} / ${questionsOnThisPageCount}`;
-            
-            let currentTotalScore = 0;
-            let currentTotalAttemptedQuestions = 0;
-            for(let i=0; i < pageAttempted.length; i++){
-                if(pageAttempted[i]){
-                    const start = i * questionsPerPage;
-                    const end = Math.min(start + questionsPerPage, questions.length);
-                    currentTotalAttemptedQuestions += (end-start);
-                    currentTotalScore += pageScores[i];
-                }
-            }
-
-            const quizTitleElement = document.querySelector('h1'); 
-            let quizMainTitle = "현재 단원";
-            if (quizTitleElement) {
-                const tempDiv = document.createElement('div');
-                tempDiv.innerHTML = quizTitleElement.innerHTML; 
-                quizMainTitle = tempDiv.textContent || tempDiv.innerText || "";
-                const titleParts = quizMainTitle.split('(');
-                if (titleParts.length > 0) {
-                    quizMainTitle = titleParts[0].trim();
-                }
-            }
-            
-            if (quizMainTitleDisplayElement) { 
-                quizMainTitleDisplayElement.textContent = quizMainTitle;
-            }
-
-            if (currentTotalAttemptedQuestions > 0) {
-                 totalScoreTextElement.style.display = 'block'; 
-                 totalScoreTextElement.textContent = `총 누적 점수: ${currentTotalScore} / ${currentTotalAttemptedQuestions}`;
-            } else {
-                 totalScoreTextElement.style.display = 'none'; 
-            }
-        }
-        
-        // 팝업 기능
-        window.onload = () => {
-            if (welcomePopup) {
-                // 각 퀴즈 페이지마다 고유한 sessionStorage 키 사용
-                const popupSessionKey = 'appiaQuizPasswordEntered_physics_unit2_bisang'; 
-                const popupShownThisSession = sessionStorage.getItem(popupSessionKey); 
-                if (!popupShownThisSession) { 
-                    welcomePopup.classList.add('show');
-                } else {
-                    initializeQuizData();
-                    renderQuestionsForPage(0);
-                }
-            } else { 
-                initializeQuizData();
-                renderQuestionsForPage(0);
-            }
-        };
-
-        if (popupConfirmButton) {
-            popupConfirmButton.addEventListener('click', () => {
-                if (popupPasswordInput.value === correctPassword) {
-                    if (welcomePopup) {
-                        welcomePopup.classList.remove('show');
-                    }
-                    const popupSessionKey = 'appiaQuizPasswordEntered_physics_unit2_bisang';
-                    sessionStorage.setItem(popupSessionKey, 'true'); 
-                    initializeQuizData(); 
-                    renderQuestionsForPage(0);
-                } else {
-                    if (popupErrorMessage) {
-                        popupErrorMessage.textContent = "비밀번호가 틀렸습니다. 다시 시도해주세요.";
-                    }
-                    popupPasswordInput.value = ''; 
-                    popupPasswordInput.focus(); 
+        function updateNavbarActiveState(pageNumber) {
+            document.querySelectorAll('#quiz-navbar button').forEach(navBtn => {
+                navBtn.classList.remove('active-nav');
+                if (parseInt(navBtn.dataset.page) === pageNumber) {
+                    navBtn.classList.add('active-nav');
                 }
             });
         }
         
-        if (popupPasswordInput) {
-            popupPasswordInput.addEventListener('keypress', function(event) {
-                if (event.key === 'Enter') {
-                    event.preventDefault(); 
-                    popupConfirmButton.click();
-                }
+        function displayPage(pageNumber) {
+            document.querySelectorAll('.question-page').forEach(page => {
+                page.classList.remove('active');
             });
+            const targetPage = document.getElementById(`page-${pageNumber}`);
+            if (targetPage) {
+                targetPage.classList.add('active');
+            }
+
+            document.getElementById('prev-page-btn').disabled = (pageNumber === 1);
+            document.getElementById('next-page-btn').disabled = (pageNumber === totalPages);
+            document.getElementById('page-indicator').textContent = `Page ${pageNumber} / ${totalPages}`;
+
+            const scoreButton = targetPage.querySelector('.page-score-button');
+            if (scoreButton) {
+                scoreButton.disabled = pageScoredStatus[pageNumber] || false;
+            }
+            updateNavbarActiveState(pageNumber);
         }
 
+        function navigateToPage(pageNumber) {
+            currentPage = pageNumber;
+            displayPage(currentPage);
+            const navbarHeight = document.getElementById('quiz-navbar').offsetHeight || 60;
+            const containerElement = document.querySelector('.container');
+            if (containerElement) {
+                 window.scrollTo({
+                     top: containerElement.offsetTop - navbarHeight - 10, 
+                     behavior: 'smooth'
+                 });
+            }
+        }
+        
+        function changePage(direction) {
+            const newPage = currentPage + direction;
+            if (newPage >= 1 && newPage <= totalPages) {
+                currentPage = newPage;
+                displayPage(currentPage);
+                 const navbarHeight = document.getElementById('quiz-navbar').offsetHeight || 60;
+                 const containerElement = document.querySelector('.container');
+                 if (containerElement) {
+                    window.scrollTo({
+                        top: containerElement.offsetTop - navbarHeight - 10, 
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        }
+
+        function scoreCurrentPage(pageNumber) {
+            let score = 0;
+            const currentPageElement = document.getElementById(`page-${pageNumber}`);
+            if (!currentPageElement) return;
+
+            const questionsOnPage = currentPageElement.querySelectorAll('.question');
+            let allAnswered = true;
+
+            questionsOnPage.forEach(question => {
+                const correctAnswer = question.dataset.correctAnswer;
+                const explanationText = question.dataset.explanation;
+                const feedbackElement = question.querySelector('.answer-feedback');
+                const explanationDiv = question.querySelector('.detailed-explanation');
+                let userAnswer = null;
+
+                question.classList.remove('correct-q', 'incorrect-q');
+                feedbackElement.textContent = '';
+                if(explanationDiv) {
+                    explanationDiv.innerHTML = ''; 
+                    explanationDiv.style.display = 'none';
+                }
+                question.querySelectorAll('.options label').forEach(lbl => {
+                    lbl.classList.remove('actual-correct-option');
+                });
+
+
+                for (const radioButton of question.querySelectorAll('input[type="radio"]')) {
+                    if (radioButton.checked) {
+                        userAnswer = radioButton.value;
+                        break;
+                    }
+                }
+
+                if (userAnswer === null && questionsOnPage.length > 0) { // Check if there are questions to answer
+                    allAnswered = false;
+                }
+                
+                if (userAnswer !== null) { // Only score if an answer was selected
+                    if (userAnswer === correctAnswer) {
+                        score++;
+                        question.classList.add('correct-q');
+                        feedbackElement.textContent = "정답입니다! 👍";
+                    } else {
+                        question.classList.add('incorrect-q');
+                        feedbackElement.textContent = `오답입니다. 정답: ${correctAnswer}`;
+                        question.querySelectorAll('.options label').forEach(lbl => {
+                            if (lbl.querySelector('input[type="radio"]').value === correctAnswer) {
+                                lbl.classList.add('actual-correct-option');
+                            }
+                        });
+                    }
+                    if (explanationDiv && explanationText) {
+                        explanationDiv.innerHTML = explanationText; 
+                        explanationDiv.style.display = 'block';
+                    }
+                }
+            });
+
+            if (!allAnswered && questionsOnPage.length > 0) {
+                alert("현재 페이지의 모든 문제에 답을 선택해주세요!");
+                return;
+            }
+            
+            if (questionsOnPage.length > 0) { // Only update score if there are questions
+                const scoreDisplay = document.getElementById(`page-score-${pageNumber}`);
+                scoreDisplay.textContent = `점수: ${score} / ${questionsOnPage.length}`;
+                
+                pageScoredStatus[pageNumber] = true; 
+                const scoreButton = currentPageElement.querySelector('.page-score-button');
+                if (scoreButton) {
+                    scoreButton.disabled = true; 
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+             const navbarHeight = document.getElementById('quiz-navbar').offsetHeight || 60;
+             document.body.style.paddingTop = navbarHeight + 'px'; 
+             displayPage(currentPage);
+        });
     </script>
 </body>
 </html>
