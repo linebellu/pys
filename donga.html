@@ -295,8 +295,7 @@
             { id: 221, 'type': 'fill-in', 'text': '221. ( )를 CCD에 붙여 색을 구분한다.', 'answer': '색필터', 'options': ['편광판', '프리즘', '색필터', '렌즈'], 'explanation': '각 화소 앞에 빨강(R), 초록(G), 파랑(B) 색 필터를 붙여, 특정 색의 빛만 통과시켜 색 정보를 얻습니다.'}
         ];
         
-        // 명언 목록
-        const motivationalQuotes = [
+             const motivationalQuotes = [
             "오늘의 노력이 내일의 너를 만든다.", "포기하지 않는 한, 실패는 없다.", "가장 큰 위험은 아무 위험도 감수하지 않는 것이다.",
             "배움은 의무도, 생존도 아니다. 그것은 우리의 가장 큰 특권이다.", "성공은 최종 목적지가 아니며, 실패는 치명적이지 않다. 중요한 것은 계속 나아가는 용기다.",
             "작은 성공들이 모여 큰 성공을 이룬다.", "어제보다 나은 오늘, 오늘보다 나은 내일을 만들자.",
@@ -385,7 +384,7 @@
                     return '<span class="blank-emphasis">( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</span>';
                 });
 
-                questionText.innerHTML = processedText.replace(/(\d+)/g, '<sub>$1</sub>').replace(/<sub>(\d{2,})<\/sub>/g, '$1').replace(/×10⁸/g, '×10<sup>8</sup>');
+                questionText.innerHTML = processedText.replace(/\u00b3/g, '<sup>3</sup>');
                 questionCard.appendChild(questionText);
 
                 const optionsContainer = document.createElement('div');
@@ -405,7 +404,7 @@
 
                     const optionLabel = document.createElement('label');
                     optionLabel.htmlFor = optionId;
-                    optionLabel.innerHTML = option.includes(';') ? option.split(';').join(', ') : option.replace(/(\d+)/g, '<sub>$1</sub>').replace(/<sub>(\d{2,})<\/sub>/g, '$1').replace(/×10⁸/g, '×10<sup>8</sup>');
+                    optionLabel.innerHTML = option.includes(';') ? option.split(';').join(', ') : option.replace(/\u00b3/g, '<sup>3</sup>');
                     optionLabel.classList.add('option-label');
                     if (pageAttempted[currentPage]) optionLabel.classList.add('opacity-70', 'cursor-not-allowed');
 
@@ -463,7 +462,7 @@
                 feedbackElement.innerHTML = '<strong class="font-semibold">정답입니다!</strong> 🎉';
                 feedbackElement.className = 'feedback correct';
             } else {
-                feedbackElement.innerHTML = `<strong class="font-semibold">오답입니다.</strong> 정답은 "<span class="font-bold text-red-700">${correctAnswerText.replace(/(\d+)/g, '<sub>$1</sub>').replace(/<sub>(\d{2,})<\/sub>/g, '$1').replace(/×10⁸/g, '×10<sup>8</sup>')}</span>"입니다.`;
+                feedbackElement.innerHTML = `<strong class="font-semibold">오답입니다.</strong> 정답은 "<span class="font-bold text-red-700">${correctAnswerText.replace(/\u00b3/g, '<sup>3</sup>')}</span>"입니다.`;
                 feedbackElement.className = 'feedback incorrect';
             }
 
@@ -601,7 +600,7 @@
         window.onload = () => {
             if (welcomePopup) {
                 // 각 퀴즈 페이지마다 고유한 sessionStorage 키 사용
-                const popupSessionKey = 'appiaQuizPasswordEntered_physics1_final';
+                const popupSessionKey = 'appiaQuizPasswordEntered_buldang_materials_final';
                 const popupShownThisSession = sessionStorage.getItem(popupSessionKey);
                 if (!popupShownThisSession) {
                     welcomePopup.classList.add('show');
@@ -621,7 +620,7 @@
                     if (welcomePopup) {
                         welcomePopup.classList.remove('show');
                     }
-                    const popupSessionKey = 'appiaQuizPasswordEntered_physics1_final';
+                    const popupSessionKey = 'appiaQuizPasswordEntered_buldang_materials_final';
                     sessionStorage.setItem(popupSessionKey, 'true');
                     initializeQuizData();
                     renderQuestionsForPage(0);
