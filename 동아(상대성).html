@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>물리학 I 기말고사 대비 (1/3)</title>
+    <title>아피아 과학학원 UT의 물리학 I 동아교과서 (1/3)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
@@ -78,7 +78,7 @@
             { id: 5, type: 'fill-in', text: "5. 특수 상대성 이론의 가설 두가지는 ( )와 ( )이다.", answer: "상대성원리;광속불변원리", options: ["상대성원리;광속불변원리", "관성법칙;가속도법칙", "질량보존;에너지보존", "운동량보존;각운동량보존"], explanation: "아인슈타인의 특수 상대성 이론은 '상대성 원리'와 '광속 불변 원리'라는 두 가지 가설을 기반으로 합니다." },
             { id: 6, type: 'fill-in', text: "6. 상대성 원리 : 모든 ( )에서 물리 법칙은 동일하다.", answer: "관성계", options: ["관성계", "가속계", "좌표계", "우주"], explanation: "특수 상대성 이론의 상대성 원리는 역학 법칙뿐만 아니라 모든 물리 법칙(전자기학 포함)이 동일하게 적용된다는 의미로 확장됩니다." },
             { id: 7, type: 'fill-in', text: "7. 광속 불변 원리 : 모든 ( )에서 빛의 속력은 일정하다.", answer: "관성계", options: ["관성계", "매질", "진공", "우주"], explanation: "관측자의 속도나 광원의 속도에 관계없이, 진공 속에서 진행하는 빛의 속력은 모든 관성계에서 c로 일정합니다." },
-            { id: 8, 'type': 'fill-in', 'text': '8. 어떤 혜성이 지구를 기준으로 40km/h로 지구에 접근할 때, 혜성에서 출발한 빛의 속력은 지구에서 관측할 때 몇 m/s로 관측될까?', 'answer': '2.99792458×10⁸m/s', 'options': ['2.99792458×10⁸m/s', '40km/h + c', 'c - 40km/h', '알 수 없음'], 'explanation': '광속 불변 원리에 따라, 광원의 속도와 관계없이 빛의 속력은 항상 c(약 3.0×10⁸m/s)로 관측됩니다.'},
+            { id: 8, 'type': 'fill-in', 'text': '8. 어떤 혜성이 지구를 기준으로 40km/h로 지구에 접근할 때, 혜성에서 출발한 빛의 속력은 지구에서 관측할 때 어떻게 될까?', 'answer': 'c (빛의 속력)', 'options': ['c (빛의 속력)', 'c + 40km/h', 'c - 40km/h', '측정할 수 없다'], 'explanation': '광속 불변 원리에 따라, 광원의 속도(혜성)나 관측자의 속도(지구)에 관계없이 빛의 속력은 항상 c로 일정하게 관측됩니다.'},
             { id: 9, type: 'fill-in', text: "9. 특수 상대성 이론에 따르면 한 관측자에게 동시에 일어난 사건이, 상대적으로 운동하는 다른 관측자에게는 동시에 일어난 사건이 아닐 수 있음을 ( ) 이라한다.", answer: "동시성의 상대성", options: ["시간 지연", "길이 수축", "동시성의 상대성", "질량-에너지 동등성"], explanation: "동시성은 절대적인 개념이 아니라 관측자의 운동 상태에 따라 다르게 측정되는 상대적인 개념입니다." },
             { id: 10, type: 'ox', text: "10. 시간은 누구에게나 항상 일정하게 흐르는 절대적인 것이다.", answer: "X", options: ["O", "X"], explanation: "아닙니다. 특수 상대성 이론에 따르면 시간은 관측자의 운동 상태에 따라 상대적으로 흐릅니다." },
             { id: 11, type: 'fill-in', text: "11. 관측자와 관측 대상의 상대적인 운동이 없을 때의 시간을 ( )이라 한다.", answer: "고유시간", options: ["절대시간", "상대시간", "고유시간", "표준시간"], explanation: "고유 시간은 사건이 일어난 바로 그 장소에서 측정한 시간으로, 항상 가장 짧게 측정됩니다." },
@@ -110,14 +110,8 @@
             { id: 37, type: 'ox', text: "37. '물질은 생성될 수도, 소멸될 수도 없다'는 옳은 문장이다.", answer: "X", options: ["O", "X"], explanation: "아닙니다. 핵반응에서는 질량이 에너지로, 또는 에너지가 질량으로 변환될 수 있으므로, 질량 보존 법칙이 엄밀히 성립하지 않습니다. 질량-에너지가 보존됩니다." }
         ];
 
-        // 이 아래의 코드는 이전과 동일합니다.
-        const motivationalQuotes = [
-            "오늘의 노력이 내일의 너를 만든다.", "포기하지 않는 한, 실패는 없다.", "가장 큰 위험은 아무 위험도 감수하지 않는 것이다.",
-            "배움은 의무도, 생존도 아니다. 그것은 우리의 가장 큰 특권이다.", "성공은 최종 목적지가 아니며, 실패는 치명적이지 않다. 중요한 것은 계속 나아가는 용기다.",
-            "작은 성공들이 모여 큰 성공을 이룬다.", "어제보다 나은 오늘, 오늘보다 나은 내일을 만들자.",
-            "가장 큰 영광은 한 번도 실패하지 않음이 아니라 실패할 때마다 다시 일어서는 데에 있다.", "천리길도 한 걸음부터.", "노력은 결코 배신하지 않는다."
-        ];
-
+        // Motivational quotes and other script elements are here
+        const motivationalQuotes = ["오늘의 노력이 내일의 너를 만든다.", "포기하지 않는 한, 실패는 없다."];
         const quizElement = document.getElementById('quiz');
         const paginationControlsElement = document.getElementById('pagination-controls');
         const submitPageButton = document.getElementById('submit-page-btn');
@@ -127,14 +121,11 @@
         const pageInfoElement = document.getElementById('page-info');
         const quizMainTitleDisplayElement = document.getElementById('quiz-main-title-in-score');
         const motivationalQuoteElement = document.getElementById('motivational-quote');
-        
         const welcomePopup = document.getElementById('welcome-popup');
         const popupPasswordInput = document.getElementById('popup-password');
         const popupConfirmButton = document.getElementById('popup-confirm');
         const popupErrorMessage = document.getElementById('popup-error');
-
         const correctPassword = "0407";
-
         const questionsPerPage = 10;
         let currentPage = 0;
         let pageScores = [];
@@ -171,25 +162,18 @@
         function renderQuestionsForPage(page) {
             quizElement.innerHTML = '';
             currentPage = page;
-
             const start = page * questionsPerPage;
             const end = Math.min(start + questionsPerPage, questions.length);
             const questionsOnPage = questions.slice(start, end);
-
             pageInfoElement.textContent = `총 ${questions.length}문제 중 ${start + 1} - ${end}번 문제`;
-
             questionsOnPage.forEach((q, indexOnPage) => {
                 const questionCard = document.createElement('div');
                 questionCard.classList.add('question-card');
                 questionCard.id = `question-${q.id}`;
-
                 const questionText = document.createElement('p');
                 questionText.classList.add('question-text');
                 let processedText = q.text.replace(/\d+\.\s*/, (match) => `<span class="font-bold">${match}</span>`);
-                
                 processedText = processedText.replace(/(\(\s*\))/g, '<span class="blank-emphasis">( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</span>');
-                
-                // Handle multiple blanks
                 let blankIndex = 0;
                 processedText = processedText.replace(/<span class="blank-emphasis">\( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \)<\/span>/g, () => {
                     if (q.answersArray && q.answersArray.length > 1 && q.answersArray[blankIndex]) {
@@ -199,16 +183,12 @@
                     }
                     return '<span class="blank-emphasis">( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</span>';
                 });
-
-                questionText.innerHTML = processedText.replace(/(\d+)/g, '<sub>$1</sub>').replace(/<sub>(\d{2,})<\/sub>/g, '$1').replace(/×10⁸/g, '×10<sup>8</sup>');
+                questionText.innerHTML = processedText.replace(/×10⁸/g, '×10<sup>8</sup>');
                 questionCard.appendChild(questionText);
-
                 const optionsContainer = document.createElement('div');
                 optionsContainer.classList.add('options');
-
                 q.options.forEach((option, index) => {
                     const optionId = `q${q.id}-option-${index}`;
-                    
                     const radioInput = document.createElement('input');
                     radioInput.type = 'radio';
                     radioInput.id = optionId;
@@ -217,29 +197,24 @@
                     radioInput.classList.add('option-input', 'hidden');
                     if (q.userAnswer === option) radioInput.checked = true;
                     if (pageAttempted[currentPage]) radioInput.disabled = true;
-
                     const optionLabel = document.createElement('label');
                     optionLabel.htmlFor = optionId;
-                    optionLabel.innerHTML = option.includes(';') ? option.split(';').join(', ') : option.replace(/(\d+)/g, '<sub>$1</sub>').replace(/<sub>(\d{2,})<\/sub>/g, '$1').replace(/×10⁸/g, '×10<sup>8</sup>');
+                    optionLabel.innerHTML = option.includes(';') ? option.split(';').join(', ') : option.replace(/×10⁸/g, '×10<sup>8</sup>');
                     optionLabel.classList.add('option-label');
                     if (pageAttempted[currentPage]) optionLabel.classList.add('opacity-70', 'cursor-not-allowed');
-
                     optionsContainer.appendChild(radioInput);
                     optionsContainer.appendChild(optionLabel);
                 });
                 questionCard.appendChild(optionsContainer);
-
                 const feedbackElement = document.createElement('div');
                 feedbackElement.classList.add('feedback');
                 feedbackElement.style.display = 'none';
                 questionCard.appendChild(feedbackElement);
-                
                 if (pageAttempted[currentPage] && q.attemptedThisSession) {
                     showFeedbackForQuestion(q, questionCard);
                 }
                 quizElement.appendChild(questionCard);
             });
-
             const numPages = Math.ceil(questions.length / questionsPerPage);
             if (numPages > 1) {
                 paginationControlsElement.style.display = 'flex';
@@ -247,7 +222,6 @@
             } else {
                 paginationControlsElement.style.display = 'none';
             }
-
             submitPageButton.disabled = pageAttempted[currentPage];
             if (pageAttempted[currentPage]) {
                 submitPageButton.textContent = '채점 완료';
@@ -266,39 +240,32 @@
                 }
             }
         }
-        
         function showFeedbackForQuestion(question, questionCard) {
             const feedbackElement = questionCard.querySelector('.feedback');
             if (!feedbackElement) return;
-
             feedbackElement.innerHTML = '';
             const correctAnswerText = question.answersArray.join(', ');
-
             if (question.isCorrect) {
                 feedbackElement.innerHTML = '<strong class="font-semibold">정답입니다!</strong> 🎉';
                 feedbackElement.className = 'feedback correct';
             } else {
-                feedbackElement.innerHTML = `<strong class="font-semibold">오답입니다.</strong> 정답은 "<span class="font-bold text-red-700">${correctAnswerText.replace(/(\d+)/g, '<sub>$1</sub>').replace(/<sub>(\d{2,})<\/sub>/g, '$1').replace(/×10⁸/g, '×10<sup>8</sup>')}</span>"입니다.`;
+                feedbackElement.innerHTML = `<strong class="font-semibold">오답입니다.</strong> 정답은 "<span class="font-bold text-red-700">${correctAnswerText.replace(/×10⁸/g, '×10<sup>8</sup>')}</span>"입니다.`;
                 feedbackElement.className = 'feedback incorrect';
             }
-
             const explanationElement = document.createElement('p');
             explanationElement.classList.add('explanation');
             explanationElement.innerHTML = `<strong class="font-semibold">해설:</strong> ${question.explanation}`;
             feedbackElement.appendChild(explanationElement);
             feedbackElement.style.display = 'block';
         }
-
         function renderPaginationControls() {
             paginationControlsElement.innerHTML = '';
             const numPages = Math.ceil(questions.length / questionsPerPage);
-
             const prevButton = document.createElement('button');
             prevButton.textContent = '이전';
             prevButton.disabled = currentPage === 0;
             prevButton.onclick = () => renderQuestionsForPage(currentPage - 1);
             paginationControlsElement.appendChild(prevButton);
-
             for (let i = 0; i < numPages; i++) {
                 const pageButton = document.createElement('button');
                 pageButton.textContent = i + 1;
@@ -309,44 +276,34 @@
                 pageButton.onclick = () => renderQuestionsForPage(i);
                 paginationControlsElement.appendChild(pageButton);
             }
-
             const nextButton = document.createElement('button');
             nextButton.textContent = '다음';
             nextButton.disabled = currentPage === numPages - 1;
             nextButton.onclick = () => renderQuestionsForPage(currentPage + 1);
             paginationControlsElement.appendChild(nextButton);
         }
-
         function showMotivationalQuote() {
             const randomIndex = Math.floor(Math.random() * motivationalQuotes.length);
             motivationalQuoteElement.textContent = motivationalQuotes[randomIndex];
             motivationalQuoteElement.style.display = 'block';
         }
-
         submitPageButton.addEventListener('click', () => {
             if (pageAttempted[currentPage]) return;
-
             let scoreForThisPage = 0;
-            
             const start = currentPage * questionsPerPage;
             const end = Math.min(start + questionsPerPage, questions.length);
             const questionsOnPage = questions.slice(start, end);
-
             questionsOnPage.forEach((q, indexOnPage) => {
                 const questionCard = quizElement.children[indexOnPage];
                 const selectedOptionInput = questionCard.querySelector(`input[name="question-${q.id}"]:checked`);
-                
                 q.attemptedThisSession = true;
-
                 if (selectedOptionInput) {
                     q.userAnswer = selectedOptionInput.value;
                     q.isCorrect = (q.userAnswer === q.answer);
-                    
                     if (q.isCorrect) {
                         scoreForThisPage++;
                     }
                     showFeedbackForQuestion(q, questionCard);
-
                     const radioInputs = questionCard.querySelectorAll('input[type="radio"]');
                     radioInputs.forEach(input => input.disabled = true);
                 } else {
@@ -357,26 +314,21 @@
                     q.isCorrect = false;
                 }
             });
-            
             pageScores[currentPage] = scoreForThisPage;
             pageAttempted[currentPage] = true;
             submitPageButton.disabled = true;
             submitPageButton.textContent = '채점 완료';
-            
             scoreSectionElement.style.display = 'block';
             updateScoreDisplay();
             showMotivationalQuote();
-
             const quizContainerElement = document.querySelector('.quiz-container');
             if (quizContainerElement) {
                 quizContainerElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         });
-
         function updateScoreDisplay() {
             const questionsOnThisPageCount = Math.min(questionsPerPage, questions.length - (currentPage * questionsPerPage));
             currentPageScoreTextElement.textContent = `이번 페이지 점수: ${pageScores[currentPage]} / ${questionsOnThisPageCount}`;
-            
             let currentTotalScore = 0;
             let currentTotalAttemptedQuestions = 0;
             for(let i=0; i < pageAttempted.length; i++){
@@ -387,7 +339,6 @@
                     currentTotalScore += pageScores[i];
                 }
             }
-
             const quizTitleElement = document.querySelector('h1');
             let quizMainTitle = "현재 단원";
             if (quizTitleElement) {
@@ -399,11 +350,9 @@
                     quizMainTitle = titleParts[0].trim();
                 }
             }
-            
             if (quizMainTitleDisplayElement) {
                 quizMainTitleDisplayElement.textContent = quizMainTitle;
             }
-
             if (currentTotalAttemptedQuestions > 0) {
                  totalScoreTextElement.style.display = 'block';
                  totalScoreTextElement.textContent = `총 누적 점수: ${currentTotalScore} / ${currentTotalAttemptedQuestions}`;
@@ -411,12 +360,9 @@
                  totalScoreTextElement.style.display = 'none';
             }
         }
-        
-        // 팝업 기능
         window.onload = () => {
             if (welcomePopup) {
-                // 각 퀴즈 페이지마다 고유한 sessionStorage 키 사용
-                const popupSessionKey = 'appiaQuizPasswordEntered_physics1_final_part1_v3';
+                const popupSessionKey = 'appiaQuizPasswordEntered_physics1_final_part1_v4';
                 const popupShownThisSession = sessionStorage.getItem(popupSessionKey);
                 if (!popupShownThisSession) {
                     welcomePopup.classList.add('show');
@@ -429,14 +375,13 @@
                 renderQuestionsForPage(0);
             }
         };
-
         if (popupConfirmButton) {
             popupConfirmButton.addEventListener('click', () => {
                 if (popupPasswordInput.value === correctPassword) {
                     if (welcomePopup) {
                         welcomePopup.classList.remove('show');
                     }
-                    const popupSessionKey = 'appiaQuizPasswordEntered_physics1_final_part1_v3';
+                    const popupSessionKey = 'appiaQuizPasswordEntered_physics1_final_part1_v4';
                     sessionStorage.setItem(popupSessionKey, 'true');
                     initializeQuizData();
                     renderQuestionsForPage(0);
@@ -449,7 +394,6 @@
                 }
             });
         }
-        
         if (popupPasswordInput) {
             popupPasswordInput.addEventListener('keypress', function(event) {
                 if (event.key === 'Enter') {
@@ -458,7 +402,6 @@
                 }
             });
         }
-
     </script>
 </body>
 </html>
