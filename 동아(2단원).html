@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>물리학 I 기말고사 대비 (2/3)</title>
+    <title>아피아 과학학원 UT의 물리학 I 동아교과서 (2/3)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
@@ -75,7 +75,7 @@
             { id: 39, type: 'ox', text: "39. 원자의 부피 대부분은 원자핵이 차지한다.", answer: "X", options: ["O", "X"], explanation: "아닙니다. 원자핵은 매우 작고, 원자의 부피 대부분은 전자가 돌아다니는 빈 공간입니다." },
             { id: 40, 'type': 'ox', 'text': '40. 원자의 질량 대부분은 원자핵이 차지한다.', 'answer': 'O', 'options': ['O', 'X'], 'explanation': '맞습니다. 양성자와 중성자는 전자에 비해 매우 무겁기 때문에, 원자의 질량은 거의 원자핵에 집중되어 있습니다.'},
             { id: 41, 'type': 'ox', 'text': '41. 원자의 대부분은 빈 공간이다.', 'answer': 'O', 'options': ['O', 'X'], 'explanation': '맞습니다. 원자를 거대한 운동장에 비유하면, 원자핵은 중앙에 있는 구슬 하나 정도의 크기입니다.'},
-            { id: 42, 'type': 'fill-in', 'text': '42. 원자가 전기적으로 중성인 까닭은 양성자의 수와 ( )의 수가 같기 때문이다.', 'answer': '전자', 'options': ['중성자', '전자', '원자핵', '쿼크'], 'explanation': '양성자의 (+)전하량과 전자의 (-)전하량의 총합이 0이 되어 전기적으로 중성을 띱니다.'},
+            { id: 42, 'type': 'fill-in', 'text': '42. 원자가 전기적으로 중성인 까닭은 양성자의 수와 ( )의 수가 같기 때문', 'answer': '전자', 'options': ['중성자', '전자', '원자핵', '쿼크'], 'explanation': '양성자의 (+)전하량과 전자의 (-)전하량의 총합이 0이 되어 전기적으로 중성을 띱니다.'},
             { id: 43, 'type': 'fill-in', 'text': '43. 전하량의 단위는 ( )을 쓴다.', 'answer': '쿨롱', 'options': ['암페어(A)', '볼트(V)', '쿨롱(C)', '옴(Ω)'], 'explanation': '전하량의 단위로는 쿨롱(C)을 사용합니다.'},
             { id: 44, 'type': 'fill-in', 'text': '44. 1C란 ( )의 전류가 흐르는 도선의 한 면을 1초동안 지나간 ( )을 말함', 'answer': '1A;전하량', 'options': ['1V;전압', '1A;전하량', '1W;에너지', '1Ω;저항'], 'explanation': '전하량(Q) = 전류(I) × 시간(t)의 관계에 따라, 1C는 1A의 전류가 1초 동안 흘렀을 때 이동한 전하량으로 정의됩니다.'},
             { id: 45, 'type': 'ox', 'text': '45. 전하를 띠는 두 물체 사이에 뉴턴 운동 3법칙이 적용된다.', 'answer': 'O', 'options': ['O', 'X'], 'explanation': '맞습니다. A가 B를 당기는 전기력과 B가 A를 당기는 전기력은 크기가 같고 방향이 반대인 작용-반작용 관계입니다.'},
@@ -247,7 +247,7 @@
                     }
                     return '<span class="blank-emphasis">( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</span>';
                 });
-                questionText.innerHTML = processedText.replace(/×10⁸/g, '×10<sup>8</sup>');
+                questionText.innerHTML = processedText.replace(/(\d+)/g, '<sub>$1</sub>').replace(/<sub>(\d{2,})<\/sub>/g, '$1').replace(/×10⁸/g, '×10<sup>8</sup>');
                 questionCard.appendChild(questionText);
                 const optionsContainer = document.createElement('div');
                 optionsContainer.classList.add('options');
@@ -263,7 +263,7 @@
                     if (pageAttempted[currentPage]) radioInput.disabled = true;
                     const optionLabel = document.createElement('label');
                     optionLabel.htmlFor = optionId;
-                    optionLabel.innerHTML = option.includes(';') ? option.split(';').join(', ') : option.replace(/×10⁸/g, '×10<sup>8</sup>');
+                    optionLabel.innerHTML = option.includes(';') ? option.split(';').join(', ') : option.replace(/(\d+)/g, '<sub>$1</sub>').replace(/<sub>(\d{2,})<\/sub>/g, '$1').replace(/×10⁸/g, '×10<sup>8</sup>');
                     optionLabel.classList.add('option-label');
                     if (pageAttempted[currentPage]) optionLabel.classList.add('opacity-70', 'cursor-not-allowed');
                     optionsContainer.appendChild(radioInput);
@@ -313,7 +313,7 @@
                 feedbackElement.innerHTML = '<strong class="font-semibold">정답입니다!</strong> 🎉';
                 feedbackElement.className = 'feedback correct';
             } else {
-                feedbackElement.innerHTML = `<strong class="font-semibold">오답입니다.</strong> 정답은 "<span class="font-bold text-red-700">${correctAnswerText.replace(/×10⁸/g, '×10<sup>8</sup>')}</span>"입니다.`;
+                feedbackElement.innerHTML = `<strong class="font-semibold">오답입니다.</strong> 정답은 "<span class="font-bold text-red-700">${correctAnswerText.replace(/(\d+)/g, '<sub>$1</sub>').replace(/<sub>(\d{2,})<\/sub>/g, '$1').replace(/×10⁸/g, '×10<sup>8</sup>')}</span>"입니다.`;
                 feedbackElement.className = 'feedback incorrect';
             }
             const explanationElement = document.createElement('p');
