@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>물리학 I 기말고사 (1/2)</title>
+    <title>물리학 I 기말고사 대비 (1/2)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
@@ -202,6 +202,7 @@
             { id: 129, 'type': 'fill-in', 'text': '129. 마이크, 전자 기타, 인덕션 레인지 모두 ( )가 쓰인다.', 'answer': '전자기유도', 'options': ['정전기유도', '광전효과', '전자기유도', '압전효과'], 'explanation': '마이크(다이나믹 방식)와 전자 기타 픽업은 진동을, 인덕션 레인지는 자기장 변화를 이용해 전류를 유도하는 전자기 유도 현상을 이용합니다.'}
         ];
         
+        // 이 아래의 코드는 이전과 동일합니다.
         const motivationalQuotes = [
             "오늘의 노력이 내일의 너를 만든다.", "포기하지 않는 한, 실패는 없다.", "가장 큰 위험은 아무 위험도 감수하지 않는 것이다.",
             "배움은 의무도, 생존도 아니다. 그것은 우리의 가장 큰 특권이다.", "성공은 최종 목적지가 아니며, 실패는 치명적이지 않다. 중요한 것은 계속 나아가는 용기다.",
@@ -507,7 +508,7 @@
         window.onload = () => {
             if (welcomePopup) {
                 // 각 퀴즈 페이지마다 고유한 sessionStorage 키 사용
-                const popupSessionKey = 'appiaQuizPasswordEntered_physics1_final_part1';
+                const popupSessionKey = 'appiaQuizPasswordEntered_physics1_final_part1_v2';
                 const popupShownThisSession = sessionStorage.getItem(popupSessionKey);
                 if (!popupShownThisSession) {
                     welcomePopup.classList.add('show');
@@ -527,7 +528,7 @@
                     if (welcomePopup) {
                         welcomePopup.classList.remove('show');
                     }
-                    const popupSessionKey = 'appiaQuizPasswordEntered_physics1_final_part1';
+                    const popupSessionKey = 'appiaQuizPasswordEntered_physics1_final_part1_v2';
                     sessionStorage.setItem(popupSessionKey, 'true');
                     initializeQuizData();
                     renderQuestionsForPage(0);
