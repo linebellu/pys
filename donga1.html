@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>물리학 I 기말고사 대비 (1/2)</title>
+    <title>물리학 I 기말고사 대비 (2/2)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
@@ -54,7 +54,7 @@
         </div>
     </div>
     <div class="quiz-container">
-        <h1>물리학 I 기말고사 대비 (1/2)</h1>
+        <h1>물리학 I 기말고사 대비 (2/2)</h1>
         <div class="page-info" id="page-info"></div>
         <div id="quiz">
             </div>
@@ -508,7 +508,7 @@
         window.onload = () => {
             if (welcomePopup) {
                 // 각 퀴즈 페이지마다 고유한 sessionStorage 키 사용
-                const popupSessionKey = 'appiaQuizPasswordEntered_physics1_final_part1_v2';
+                const popupSessionKey = 'appiaQuizPasswordEntered_physics1_final_part2';
                 const popupShownThisSession = sessionStorage.getItem(popupSessionKey);
                 if (!popupShownThisSession) {
                     welcomePopup.classList.add('show');
@@ -528,7 +528,7 @@
                     if (welcomePopup) {
                         welcomePopup.classList.remove('show');
                     }
-                    const popupSessionKey = 'appiaQuizPasswordEntered_physics1_final_part1_v2';
+                    const popupSessionKey = 'appiaQuizPasswordEntered_physics1_final_part2';
                     sessionStorage.setItem(popupSessionKey, 'true');
                     initializeQuizData();
                     renderQuestionsForPage(0);
