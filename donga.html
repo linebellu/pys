@@ -70,7 +70,6 @@
     </div>
 
     <script>
-        // 문제 데이터
         const questions = [
             { id: 1, type: 'fill-in', text: "1. 정지해 있거나 등속도로 운동하는 관측자가 볼 때 뉴턴 운동 법칙이 성립하는데, 이러한 좌표계를 ( )라 한다.", answer: "관성계", options: ["관성계", "가속계", "절대계", "상대계"], explanation: "관성계는 가속하지 않는(정지 또는 등속도 운동) 좌표계를 말하며, 모든 관성계에서 물리 법칙은 동일하게 적용됩니다." },
             { id: 2, type: 'ox', text: "2. 서로 다른 관성계에서도 운동 법칙이 동등하게 적용된다.", answer: "O", options: ["O", "X"], explanation: "맞습니다. 이것이 바로 상대성 원리의 기본 개념입니다." },
@@ -265,7 +264,7 @@
             { id: 191, 'type': 'fill-in', 'text': '191. 라이파이, 블루투스 중 진동수가 더 큰 전자기파는 ( )', 'answer': '라이파이', 'options': ['라이파이', '블루투스', '같다', '알수없다'], 'explanation': '파장이 더 짧은 가시광선을 사용하는 라이파이의 진동수가 더 큽니다.'},
             { id: 192, 'type': 'fill-in', 'text': '192. 파동은 한 지점에서 서로 겹치더라도 서로에게 영향을 미치지 않는 성질이 있는데 이를 ( )이라한다.', 'answer': '파동의 독립성', 'options': ['중첩원리', '간섭', '회절', '파동의 독립성'], 'explanation': '각 파동은 중첩 후에도 원래의 모양과 성질을 그대로 유지하며 각자의 길을 갑니다.'},
             { id: 193, 'type': 'fill-in', 'text': '193. 두 파동이 한 지점에서 겹칠 때 그 지점에서 매질의 변위는 각각의 변위를 합친 것과 같다. 이를 ( )라한다.', 'answer': '중첩원리', 'options': ['중첩원리', '간섭', '독립성', '회절'], 'explanation': '중첩 원리는 여러 파동이 만났을 때 합성파의 변위를 계산하는 기본 원리입니다.'},
-            { id: 194, 'type': 'fill-in', 'text': '194. 중첩의 결과 합쳐진 파동을 ( )라 한다.', 'answer': '합성파', 'options': ['간섭파', '정상파', '합성파', '보강파'], 'explanation': '각각의 파동이 중첩되어 만들어진 새로운 모양의 파동을 합성파라고 합니다.'},
+            { id: 194, 'type': 'fill-in', 'text': '194. 중첩의 결과 합쳐진 파동을 ( )라 한다.', 'answer': '합성파', 'options': ['간섭파', '정상파', '합성파', '보강파'], 'explanation': '각각의 파동이 중첩되어 만들어진 새로운 모양의 파동을 합성파이라고 합니다.'},
             { id: 195, 'type': 'fill-in', 'text': '195. 파동이 중첩되어 진폭이 변하는 현상을 ( )이라 한다.', 'answer': '파동의 간섭', 'options': ['회절', '굴절', '파동의 간섭', '반사'], 'explanation': '같은 위상으로 만나면 진폭이 커지고(보강 간섭), 반대 위상으로 만나면 진폭이 작아집니다(상쇄 간섭).'},
             { id: 196, 'type': 'fill-in', 'text': '196. 정상파에서 진폭이 0인 지점을 ( )라한다.', 'answer': '마디', 'options': ['배', '마디', '중심', '영점'], 'explanation': '상쇄 간섭이 지속적으로 일어나 전혀 진동하지 않는 지점을 마디(node)라고 합니다.'},
             { id: 197, 'type': 'fill-in', 'text': '197. 정상파에서 진폭이 최대인 지점을 ( )라한다.', 'answer': '배', 'options': ['배', '마디', '중심', '최대점'], 'explanation': '보강 간섭이 지속적으로 일어나 최대 진폭으로 진동하는 지점을 배(antinode)라고 합니다.'},
@@ -295,7 +294,8 @@
             { id: 221, 'type': 'fill-in', 'text': '221. ( )를 CCD에 붙여 색을 구분한다.', 'answer': '색필터', 'options': ['편광판', '프리즘', '색필터', '렌즈'], 'explanation': '각 화소 앞에 빨강(R), 초록(G), 파랑(B) 색 필터를 붙여, 특정 색의 빛만 통과시켜 색 정보를 얻습니다.'}
         ];
         
-             const motivationalQuotes = [
+        // 명언 목록
+        const motivationalQuotes = [
             "오늘의 노력이 내일의 너를 만든다.", "포기하지 않는 한, 실패는 없다.", "가장 큰 위험은 아무 위험도 감수하지 않는 것이다.",
             "배움은 의무도, 생존도 아니다. 그것은 우리의 가장 큰 특권이다.", "성공은 최종 목적지가 아니며, 실패는 치명적이지 않다. 중요한 것은 계속 나아가는 용기다.",
             "작은 성공들이 모여 큰 성공을 이룬다.", "어제보다 나은 오늘, 오늘보다 나은 내일을 만들자.",
@@ -384,7 +384,7 @@
                     return '<span class="blank-emphasis">( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</span>';
                 });
 
-                questionText.innerHTML = processedText.replace(/\u00b3/g, '<sup>3</sup>');
+                questionText.innerHTML = processedText.replace(/(\d+)/g, '<sub>$1</sub>').replace(/<sub>(\d{2,})<\/sub>/g, '$1').replace(/×10⁸/g, '×10<sup>8</sup>');
                 questionCard.appendChild(questionText);
 
                 const optionsContainer = document.createElement('div');
@@ -404,7 +404,7 @@
 
                     const optionLabel = document.createElement('label');
                     optionLabel.htmlFor = optionId;
-                    optionLabel.innerHTML = option.includes(';') ? option.split(';').join(', ') : option.replace(/\u00b3/g, '<sup>3</sup>');
+                    optionLabel.innerHTML = option.includes(';') ? option.split(';').join(', ') : option.replace(/(\d+)/g, '<sub>$1</sub>').replace(/<sub>(\d{2,})<\/sub>/g, '$1').replace(/×10⁸/g, '×10<sup>8</sup>');
                     optionLabel.classList.add('option-label');
                     if (pageAttempted[currentPage]) optionLabel.classList.add('opacity-70', 'cursor-not-allowed');
 
@@ -462,7 +462,7 @@
                 feedbackElement.innerHTML = '<strong class="font-semibold">정답입니다!</strong> 🎉';
                 feedbackElement.className = 'feedback correct';
             } else {
-                feedbackElement.innerHTML = `<strong class="font-semibold">오답입니다.</strong> 정답은 "<span class="font-bold text-red-700">${correctAnswerText.replace(/\u00b3/g, '<sup>3</sup>')}</span>"입니다.`;
+                feedbackElement.innerHTML = `<strong class="font-semibold">오답입니다.</strong> 정답은 "<span class="font-bold text-red-700">${correctAnswerText.replace(/(\d+)/g, '<sub>$1</sub>').replace(/<sub>(\d{2,})<\/sub>/g, '$1').replace(/×10⁸/g, '×10<sup>8</sup>')}</span>"입니다.`;
                 feedbackElement.className = 'feedback incorrect';
             }
 
@@ -600,7 +600,7 @@
         window.onload = () => {
             if (welcomePopup) {
                 // 각 퀴즈 페이지마다 고유한 sessionStorage 키 사용
-                const popupSessionKey = 'appiaQuizPasswordEntered_buldang_materials_final';
+                const popupSessionKey = 'appiaQuizPasswordEntered_physics1_final';
                 const popupShownThisSession = sessionStorage.getItem(popupSessionKey);
                 if (!popupShownThisSession) {
                     welcomePopup.classList.add('show');
@@ -620,7 +620,7 @@
                     if (welcomePopup) {
                         welcomePopup.classList.remove('show');
                     }
-                    const popupSessionKey = 'appiaQuizPasswordEntered_buldang_materials_final';
+                    const popupSessionKey = 'appiaQuizPasswordEntered_physics1_final';
                     sessionStorage.setItem(popupSessionKey, 'true');
                     initializeQuizData();
                     renderQuestionsForPage(0);
