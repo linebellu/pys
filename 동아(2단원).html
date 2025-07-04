@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>아피아 과학학원 UT의 물리학 I 동아교과서 (2/3)</title>
+    <title>물리학 I 기말고사 대비 (2/3)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
@@ -426,7 +426,7 @@
         }
         window.onload = () => {
             if (welcomePopup) {
-                const popupSessionKey = 'appiaQuizPasswordEntered_physics1_final_part1_v4';
+                const popupSessionKey = 'appiaQuizPasswordEntered_physics1_final_part2_v4';
                 const popupShownThisSession = sessionStorage.getItem(popupSessionKey);
                 if (!popupShownThisSession) {
                     welcomePopup.classList.add('show');
@@ -445,7 +445,7 @@
                     if (welcomePopup) {
                         welcomePopup.classList.remove('show');
                     }
-                    const popupSessionKey = 'appiaQuizPasswordEntered_physics1_final_part1_v4';
+                    const popupSessionKey = 'appiaQuizPasswordEntered_physics1_final_part2_v4';
                     sessionStorage.setItem(popupSessionKey, 'true');
                     initializeQuizData();
                     renderQuestionsForPage(0);
