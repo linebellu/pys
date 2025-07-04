@@ -190,7 +190,7 @@
 
         const correctPassword = "0407";
 
-        const questionsPerPage = 10;
+        const questionsPerPage = 15;
         let currentPage = 0;
         let pageScores = [];
         let pageAttempted = [];
@@ -426,7 +426,7 @@
         }
         window.onload = () => {
             if (welcomePopup) {
-                const popupSessionKey = 'appiaQuizPasswordEntered_physics1_final_part2_v4';
+                const popupSessionKey = 'appiaQuizPasswordEntered_physics1_final_part2_v5';
                 const popupShownThisSession = sessionStorage.getItem(popupSessionKey);
                 if (!popupShownThisSession) {
                     welcomePopup.classList.add('show');
@@ -445,7 +445,7 @@
                     if (welcomePopup) {
                         welcomePopup.classList.remove('show');
                     }
-                    const popupSessionKey = 'appiaQuizPasswordEntered_physics1_final_part2_v4';
+                    const popupSessionKey = 'appiaQuizPasswordEntered_physics1_final_part2_v5';
                     sessionStorage.setItem(popupSessionKey, 'true');
                     initializeQuizData();
                     renderQuestionsForPage(0);
