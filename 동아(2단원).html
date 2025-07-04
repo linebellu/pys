@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>물리학 I 기말고사 대비 (2/3)</title>
+    <title>아피아 과학학원 UT의 물리학 I 동아교과서</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
@@ -54,7 +54,7 @@
         </div>
     </div>
     <div class="quiz-container">
-        <h1>물리학 I 기말고사 대비 (2/3)</h1>
+        <h1>물리학 I 기말고사 대비 (동아교과서)</h1>
         <div class="page-info" id="page-info"></div>
         <div id="quiz">
             </div>
@@ -71,6 +71,43 @@
 
     <script>
         const questions = [
+            { id: 1, type: 'fill-in', text: "1. 정지해 있거나 등속도로 운동하는 관측자가 볼 때 뉴턴 운동 법칙이 성립하는데, 이러한 좌표계를 ( )라 한다.", answer: "관성계", options: ["관성계", "가속계", "절대계", "상대계"], explanation: "관성계는 가속하지 않는(정지 또는 등속도 운동) 좌표계를 말하며, 모든 관성계에서 물리 법칙은 동일하게 적용됩니다." },
+            { id: 2, type: 'ox', text: "2. 서로 다른 관성계에서도 운동 법칙이 동등하게 적용된다.", answer: "O", options: ["O", "X"], explanation: "맞습니다. 이것이 바로 상대성 원리의 기본 개념입니다." },
+            { id: 3, type: 'fill-in', text: "3. 서로 다른 관성계에서 운동법칙이 동등하게 적용되는 것을 갈릴레이의 ( )라한다.", answer: "상대성원리", options: ["관성법칙", "가속도법칙", "상대성원리", "광속불변원리"], explanation: "갈릴레이가 처음 제안한 상대성 원리는 모든 관성계에서 역학 법칙이 동일하게 성립한다는 내용입니다." },
+            { id: 4, type: 'fill-in', text: "4. ( )과 ( )는 지구의 공전을 이용하여 에테르의 존재를 확인하려 했지만, 빛의 속도는 관측자의 운동과 관계없이 일정하다는 결론을 얻었다.", answer: "마이컬슨;몰리", options: ["마이컬슨;몰리", "러더퍼드;보어", "아인슈타인;플랑크", "톰슨;채드윅"], explanation: "마이컬슨-몰리 실험은 에테르의 존재를 증명하려 했으나 실패했고, 이는 후에 광속 불변 원리의 중요한 실험적 근거가 되었습니다." },
+            { id: 5, type: 'fill-in', text: "5. 특수 상대성 이론의 가설 두가지는 ( )와 ( )이다.", answer: "상대성원리;광속불변원리", options: ["상대성원리;광속불변원리", "관성법칙;가속도법칙", "질량보존;에너지보존", "운동량보존;각운동량보존"], explanation: "아인슈타인의 특수 상대성 이론은 '상대성 원리'와 '광속 불변 원리'라는 두 가지 가설을 기반으로 합니다." },
+            { id: 6, type: 'fill-in', text: "6. 상대성 원리 : 모든 ( )에서 물리 법칙은 동일하다.", answer: "관성계", options: ["관성계", "가속계", "좌표계", "우주"], explanation: "특수 상대성 이론의 상대성 원리는 역학 법칙뿐만 아니라 모든 물리 법칙(전자기학 포함)이 동일하게 적용된다는 의미로 확장됩니다." },
+            { id: 7, type: 'fill-in', text: "7. 광속 불변 원리 : 모든 ( )에서 빛의 속력은 일정하다.", answer: "관성계", options: ["관성계", "매질", "진공", "우주"], explanation: "관측자의 속도나 광원의 속도에 관계없이, 진공 속에서 진행하는 빛의 속력은 모든 관성계에서 c로 일정합니다." },
+            { id: 8, 'type': 'fill-in', 'text': '8. 어떤 혜성이 지구를 기준으로 40km/h로 지구에 접근할 때, 혜성에서 출발한 빛의 속력은 지구에서 관측할 때 어떻게 될까?', 'answer': 'c (빛의 속력)', 'options': ['c (빛의 속력)', 'c + 40km/h', 'c - 40km/h', '측정할 수 없다'], 'explanation': '광속 불변 원리에 따라, 광원의 속도(혜성)나 관측자의 속도(지구)에 관계없이 빛의 속력은 항상 c로 일정하게 관측됩니다.'},
+            { id: 9, type: 'fill-in', text: "9. 특수 상대성 이론에 따르면 한 관측자에게 동시에 일어난 사건이, 상대적으로 운동하는 다른 관측자에게는 동시에 일어난 사건이 아닐 수 있음을 ( ) 이라한다.", answer: "동시성의 상대성", options: ["시간 지연", "길이 수축", "동시성의 상대성", "질량-에너지 동등성"], explanation: "동시성은 절대적인 개념이 아니라 관측자의 운동 상태에 따라 다르게 측정되는 상대적인 개념입니다." },
+            { id: 10, type: 'ox', text: "10. 시간은 누구에게나 항상 일정하게 흐르는 절대적인 것이다.", answer: "X", options: ["O", "X"], explanation: "아닙니다. 특수 상대성 이론에 따르면 시간은 관측자의 운동 상태에 따라 상대적으로 흐릅니다." },
+            { id: 11, type: 'fill-in', text: "11. 관측자와 관측 대상의 상대적인 운동이 없을 때의 시간을 ( )이라 한다.", answer: "고유시간", options: ["절대시간", "상대시간", "고유시간", "표준시간"], explanation: "고유 시간은 사건이 일어난 바로 그 장소에서 측정한 시간으로, 항상 가장 짧게 측정됩니다." },
+            { id: 12, type: 'ox', text: "12. 빛의 속력은 모든 관성계에서 일정하다.", answer: "O", options: ["O", "X"], explanation: "맞습니다. 이것이 바로 광속 불변의 원리입니다." },
+            { id: 13, type: 'fill-in', text: "13. 관측자와 관측 대상의 속력차이가 클수록 시간은 ( )된다.", answer: "지연", options: ["단축", "지연", "일정", "증가"], explanation: "빠르게 움직이는 관성계의 시간은 정지한 관성계에서 볼 때 더 느리게 흐르는 것으로 관측됩니다. 이를 시간 지연(팽창)이라고 합니다." },
+            { id: 14, type: 'fill-in', text: "14. 관측자와 관측 대상의 상대속도가 클수록 시간은 더 ( ) 지연된다.", answer: "많이", options: ["적게", "많이", "일정하게", "상관없이"], explanation: "상대 속도가 빛의 속력에 가까워질수록 시간 지연 효과는 더욱 커집니다." },
+            { id: 15, type: 'ox', text: "15. GPS의 인공위성은 14000km/h의 속력으로 움직이기 때문에 시간지연이 발생한다.", answer: "O", options: ["O", "X"], explanation: "맞습니다. GPS 위성은 매우 빠르게 움직이므로 특수 상대성 이론에 따른 시간 지연과, 중력이 약한 곳에 있어 일반 상대성 이론에 따른 시간 흐름 변화를 모두 보정해야 합니다." },
+            { id: 16, type: 'fill-in', text: "16. 물체의 길이는 물체의 양 끝에서 동시에 오는 빛을 기준으로 측정해야 하므로 ( )의 흐름도 고려해야한다.", answer: "시간", options: ["공간", "위치", "시간", "거리"], explanation: "동시성의 상대성 때문에, 빠르게 움직이는 물체의 길이는 정지했을 때보다 짧게 측정됩니다." },
+            { id: 17, type: 'ox', text: "17. 길이 수축은 운동방향으로만 일어난다.", answer: "O", options: ["O", "X"], explanation: "맞습니다. 운동 방향에 나란한 방향의 길이만 수축하고, 수직인 방향의 길이는 변하지 않습니다." },
+            { id: 18, type: 'ox', text: "18. 관측자를 기준으로 정지한 물체는 길이 수축이 일어나지 않는다.", answer: "O", options: ["O", "X"], explanation: "맞습니다. 길이 수축은 관측자에 대해 상대적으로 운동하는 물체에서만 관측됩니다." },
+            { id: 19, type: 'ox', text: "19. 길이 수축은 운동방향과 수직인 방향으로는 일어나지 않는다.", answer: "O", options: ["O", "X"], explanation: "맞습니다. 길이 수축은 운동 방향으로만 일어나며, 그 외 방향의 길이는 변함이 없습니다." },
+            { id: 20, type: 'ox', text: "20. 입자 가속기 안의 전자나 원자핵은 시간 지연과 길이 수축이 일어난다.", answer: "O", options: ["O", "X"], explanation: "맞습니다. 빛의 속력에 가깝게 가속되기 때문에 특수 상대성 이론의 효과가 뚜렷하게 나타납니다." },
+            { id: 21, type: 'ox', text: "21. 특수 상대성 이론을 고려하지 않아도 뮤온은 지표에서 관측할 수 있다.", answer: "X", options: ["O", "X"], explanation: "아닙니다. 뮤온의 고유 수명은 매우 짧아 지표에 도달할 수 없지만, 시간 지연 효과 때문에 수명이 길어져 지표에서 관측이 가능합니다." },
+            { id: 22, type: 'fill-in', text: "22. 지표면에 있는 관찰자가 볼 때 뮤온이 지표에 도달할 수 있는 까닭은 뮤온의 ( ) 때문이다.", answer: "시간 지연", options: ["길이 수축", "시간 지연", "질량 증가", "에너지 증가"], explanation: "지표면의 관찰자 입장에서는 빠르게 움직이는 뮤온의 시간이 느리게 흘러(수명이 길어져) 지표까지 도달할 수 있습니다." },
+            { id: 23, type: 'fill-in', text: "23. 뮤온과 함께 움직이는 관찰자가 볼 때 유온이 지표에 도달할 수 있는 까닭은 지표까지의 ( ) 때문이다.", answer: "길이 수축", options: ["길이 수축", "시간 지연", "질량 증가", "에너지 증가"], explanation: "뮤온의 입장에서는 대기권의 두께가 운동 방향으로 짧게 수축하여 짧은 고유 수명 내에도 지표에 도달할 수 있습니다." },
+            { id: 24, type: 'ox', text: "24. 뉴턴 역학에서 질량은 물체의 고유한 양으로 변하지 않는 양이다.", answer: "O", options: ["O", "X"], explanation: "맞습니다. 고전 역학에서는 질량을 불변의 값으로 다룹니다." },
+            { id: 25, type: 'ox', text: "25. 뉴턴 역학에서 한 물체에 아주 긴 시간 동안 같은 힘을 가해도 질량은 일정하기 때문에 물체의 속력은 빛의 속력 보다 빨라질 수 있다.", answer: "O", options: ["O", "X"], explanation: "맞습니다. 뉴턴 역학의 세계관(F=ma)에서는 속력의 상한선이 없다고 가정합니다." },
+            { id: 26, type: 'ox', text: "26. 특수 상대성 이론에서 빛의 속력 보다 빠른 것은 없다.", answer: "O", options: ["O", "X"], explanation: "맞습니다. 빛의 속력은 우주의 궁극적인 속력의 한계입니다." },
+            { id: 27, type: 'ox', text: "27. 물체의 속력이 빛에 가까워질수록 질량은 무한대에 가까워진다.", answer: "O", options: ["O", "X"], explanation: "맞습니다. 이 때문에 질량을 가진 물체는 빛의 속력에 도달할 수 없습니다." },
+            { id: 28, type: 'ox', text: "28. 특수 상대성이론에서 물체의 속력이 0m/s이면 에너지는 0이다.", answer: "X", options: ["O", "X"], explanation: "아닙니다. 정지한 물체도 질량 자체만으로 정지 에너지(E=mc²)를 가집니다." },
+            { id: 29, type: 'ox', text: "29. 특수 상대성이론에서 물체가 정지 상태여도 에너지를 갖는다.", answer: "O", options: ["O", "X"], explanation: "맞습니다. 이를 정지 에너지라고 하며, 질량을 가진 모든 물체는 정지 에너지를 가집니다." },
+            { id: 30, type: 'fill-in', text: "30. 질량과 에너지가 서로 변환 될 수 있음을 ( )이라한다.", answer: "질량에너지동등성", options: ["상대성원리", "광속불변원리", "질량에너지동등성", "에너지보존법칙"], explanation: "아인슈타인의 유명한 공식 E=mc²이 바로 질량-에너지 동등성을 나타냅니다." },
+            { id: 31, type: 'ox', text: "31. 핵분열 과정에서 질량은 감소한다.", answer: "O", options: ["O", "X"], explanation: "맞습니다. 감소한 질량(질량 결손)이 막대한 에너지로 전환되어 방출됩니다." },
+            { id: 32, type: 'ox', text: "32. 핵융합 과정에서 질량은 증가한다.", answer: "X", options: ["O", "X"], explanation: "아닙니다. 핵융합 과정에서도 반응 후의 질량이 반응 전보다 약간 감소하며, 이 감소한 질량이 에너지로 방출됩니다." },
+            { id: 33, type: 'fill-in', text: "33. 핵융합과 핵분열 모두 질량은 ( )한다.", answer: "감소", options: ["증가", "감소", "일정", "보존"], explanation: "두 반응 모두 반응 전후에 질량이 감소하며, 이 질량 결손이 에너지로 전환됩니다." },
+            { id: 34, type: 'fill-in', text: "34. 원자력 발전에서 ( )는 중성자의 속력을 낮추어 준다.", answer: "감속재", options: ["제어봉", "감속재", "냉각재", "핵연료"], explanation: "빠른 중성자는 핵분열을 잘 일으키지 못하므로, 물이나 흑연 같은 감속재를 이용해 속력을 느리게 만듭니다." },
+            { id: 35, type: 'ox', text: "35. 핵분열 결과 튀어나온 중성자의 속력은 매우 빠르다.", answer: "O", options: ["O", "X"], explanation: "맞습니다. 그래서 연쇄 반응을 효율적으로 일으키기 위해 감속재로 속력을 늦춰야 합니다." },
+            { id: 36, type: 'ox', text: "36. 속력이 높은 중성자는 다른 우라늄과 충돌할 때 핵분열을 일으킨다.", answer: "X", options: ["O", "X"], explanation: "아닙니다. 우라늄-235는 속력이 느린 중성자(저속 중성자)와 충돌할 때 핵분열을 더 잘 일으킵니다." },
+            { id: 37, type: 'ox', text: "37. '물질은 생성될 수도, 소멸될 수도 없다'는 옳은 문장이다.", answer: "X", options: ["O", "X"], explanation: "아닙니다. 핵반응에서는 질량이 에너지로, 또는 에너지가 질량으로 변환될 수 있으므로, 질량 보존 법칙이 엄밀히 성립하지 않습니다. 질량-에너지가 보존됩니다." },
             { id: 38, type: 'fill-in', text: "38. 전기 현상을 일으키는 원인을 ( )라한다.", answer: "전하", options: ["전기", "전류", "전하", "전압"], explanation: "전하는 물질이 띠는 전기적인 성질 그 자체를 의미하며, 모든 전기 현상의 근원입니다." },
             { id: 39, type: 'ox', text: "39. 원자의 부피 대부분은 원자핵이 차지한다.", answer: "X", options: ["O", "X"], explanation: "아닙니다. 원자핵은 매우 작고, 원자의 부피 대부분은 전자가 돌아다니는 빈 공간입니다." },
             { id: 40, 'type': 'ox', 'text': '40. 원자의 질량 대부분은 원자핵이 차지한다.', 'answer': 'O', 'options': ['O', 'X'], 'explanation': '맞습니다. 양성자와 중성자는 전자에 비해 매우 무겁기 때문에, 원자의 질량은 거의 원자핵에 집중되어 있습니다.'},
@@ -426,7 +463,7 @@
         }
         window.onload = () => {
             if (welcomePopup) {
-                const popupSessionKey = 'appiaQuizPasswordEntered_physics1_final_part3_v4';
+                const popupSessionKey = 'appiaQuizPasswordEntered_physics1_final_part2_v6';
                 const popupShownThisSession = sessionStorage.getItem(popupSessionKey);
                 if (!popupShownThisSession) {
                     welcomePopup.classList.add('show');
@@ -445,7 +482,7 @@
                     if (welcomePopup) {
                         welcomePopup.classList.remove('show');
                     }
-                    const popupSessionKey = 'appiaQuizPasswordEntered_physics1_final_part3_v4';
+                    const popupSessionKey = 'appiaQuizPasswordEntered_physics1_final_part2_v6';
                     sessionStorage.setItem(popupSessionKey, 'true');
                     initializeQuizData();
                     renderQuestionsForPage(0);
